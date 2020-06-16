@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <Button
+        android:id="@+id/btn_search_style_gas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_gas_station"
+        android:textColor="@color/ffc8c8c8"
+        android:background="@drawable/bg_search_btn"
+        android:textSize="24px"
+        android:paddingTop="14px"
+        android:paddingBottom="15px"
+        android:paddingLeft="27px"
+        android:paddingRight="27px"
+        />
+    <Button
+        android:id="@+id/btn_search_style_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_destination"
+        android:background="@drawable/bg_search_btn"
+        android:textColor="@color/ffc8c8c8"
+        android:textSize="24px"
+        android:paddingTop="14px"
+        android:paddingBottom="15px"
+        android:paddingLeft="27px"
+        android:paddingRight="27px"
+        />
+
+</LinearLayout>

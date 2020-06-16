@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_smart_pop_select_parent"
+    android:layout_width="match_parent"
+    android:layout_height="60px"
+    >
+
+    <TextView
+        android:id="@+id/tv_smart_pop_select_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全部"
+        android:textColor="#FFC8C8C8"
+        android:textSize="24px"
+        android:layout_marginLeft="40px"
+        android:layout_centerVertical="true"
+        />
+    <View
+        android:id="@+id/view_smart_pop_select_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/_1AFFFFFF"
+        android:layout_below="@+id/tv_smart_list_ticket_style"
+        android:layout_marginTop="28px"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

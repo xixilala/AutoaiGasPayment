@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test">
+
+<!--    <fragment-->
+<!--        android:id="@+id/firstFragment"-->
+<!--        android:name="com.autoai.payment.test.FirstFragment"-->
+<!--        android:label="fragment_first"-->
+<!--        tools:layout="@layout/test_first_fragment"-->
+<!--        >-->
+<!--        <action-->
+<!--            android:id="@+id/action_firstFragment_to_secondFrament"-->
+<!--            app:destination="@id/secondFragment"-->
+<!--            />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/secondFragment"-->
+<!--        android:name="com.autoai.payment.test.SecondFragment"-->
+<!--        android:label="fragment_second"-->
+<!--        tools:layout="@layout/test_second_fragment"-->
+<!--        >-->
+
+<!--    </fragment>-->
+
+</navigation>

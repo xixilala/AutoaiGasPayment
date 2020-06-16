@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--背景填充色-->
+    <solid android:color="@color/color_login_dialog"/>
+    <!--边框宽度，颜色-->
+<!--    <stroke android:width="2dp" android:color="#ff000000"/>-->
+    <!--边角圆弧-->
+    <corners android:radius="29px"/>
+</shape>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/title"
+        android:id="@+id/title_order_first_select"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_order_first_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                />
+
+            <Button
+                android:id="@+id/btn_orderselect_next_step"
+                android:layout_width="200px"
+                android:layout_height="60px"
+                android:background="@drawable/background_refresh_button"
+                android:layout_below="@+id/rv_order_first_select"
+                android:layout_marginTop="58px"
+                android:layout_marginLeft="40px"
+                android:layout_marginBottom="65px"
+                android:gravity="center"
+                android:text="@string/next_step"
+                android:textColor="@color/color_text_white"
+                android:textSize="32px"
+                />
+            <Button
+                android:id="@+id/btn_orderselect_reselection"
+                android:layout_width="200px"
+                android:layout_height="60px"
+                android:background="@drawable/background_green_button"
+                android:layout_toRightOf="@+id/btn_orderselect_next_step"
+                android:layout_alignTop="@+id/btn_orderselect_next_step"
+                android:layout_marginLeft="30px"
+                android:gravity="center"
+                android:text="@string/reselect_station"
+                android:textColor="@color/color_text_white"
+                android:textSize="32px"
+                />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

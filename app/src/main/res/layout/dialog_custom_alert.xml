@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+    <RelativeLayout
+        android:layout_width="792px"
+        android:layout_height="304px"
+        android:orientation="vertical"
+        android:background="@drawable/background_style_dialog_login"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="121px"
+            android:text="@string/dialog_login_title"
+            android:textColor="@color/color_text_white"
+            android:textSize="28px"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="29px"
+            android:layout_marginRight="29px"
+            android:layout_marginTop="36px"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/_1AFFFFFF"
+            android:layout_above="@+id/ll_dialog_buttons_parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_dialog_buttons_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+            <Button
+                android:id="@+id/btn_logindialog_cancel"
+                android:layout_width="0px"
+                android:layout_height="100px"
+                android:layout_weight="1"
+                android:background="@color/color_login_dialog"
+                android:text="@string/cancel"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="32px"
+                />
+            <Button
+                android:id="@+id/btn_logindialog_login"
+                android:layout_width="0px"
+                android:layout_height="100px"
+                android:layout_weight="1"
+                android:background="@color/color_positive"
+                android:text="@string/login"
+                android:textColor="@color/color_text_white"
+                android:textSize="32px"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

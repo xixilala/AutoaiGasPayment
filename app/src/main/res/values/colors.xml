@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--LoginActivity 主题颜色 -->
+    <color name="colorMainDrawerPrimary">#FE9B00</color>
+    <color name="colorMainDrawerPrimaryDark">#FE9B00</color>
+    <color name="colorMainDrawerAccent">#FE9B00</color>
+
+
+    <!--Toolbar Back 颜色-->
+    <color name="color_toolbar_appbar_bg">#FE9B00</color>
+    <color name="color_text_white">#FFFFFF</color>
+    <color name="color_main_toolbar_appbar_bg">#FE9B00</color>
+
+
+    <!--   ~~~~~~~~~~~~~~~~~~  登录    ~~~~~~~~~~~~~~~~~~~~~~     -->
+    <!--登录输入框 选中 未选中状态 字体的颜色-->
+    <color name="tab_login_press">#FE9B00</color>
+    <color name="tab_login_nor">#999</color>
+    <!--登录输入框 选中 未选中状态 下划线的颜色-->
+    <color name="login_edit_selector_bgColor1">#FE9B00</color>
+    <color name="login_edit_selector_bgColor2">#FE9B00</color>
+    <color name="login_edit_selector_bgColor3">#FE9B00</color>
+    <!--登陆输入框光标颜色-->
+    <color name="login_edit_cursor_color">#FE9B00</color>
+
+    <!--Button 通用颜色-->
+    <color name="color_btn_bg">#FE9B00</color>
+    <color name="color_btn_bg2">#FE6B00</color>
+
+    <!--登录按钮的背景颜色-->
+    <color name="color_login_btn_bg">#FE9B00</color>
+    <!--登录界面 忘记密码 新用户注册 文字的颜色-->
+    <color name="color_login_text">#FE9B00</color>
+
+    <!--登录提示弹窗颜色-->
+    <color name="color_login_dialog">#FF141A34</color>
+    <color name="color_positive">#FF4281FF</color>
+    <color name="ffc8c8c8">#FFC8C8C8</color>
+
+    <!--常用颜色-->
+    <color name="black">#000000</color>
+    <color name="_0C1434">#0C1434</color>
+    <color name="_030615">#030615</color>
+    <color name="_242B47">#242B47</color>
+    <color name="FF4281FF">#FF4281FF</color>
+    <color name="FFF25D52">#FFF25D52</color>
+    <color name="FF999999">#FF999999</color>
+    <color name="C8C8C8">#C8C8C8</color>
+    <!--10% 不透明度-->
+    <color name="_1AFFFFFF">#1AFFFFFF</color>
+    <!--30% 不透明度-->
+    <color name="_4DFFFFFF">#4DFFFFFF</color>
+    <!--90% 不透明度-->
+    <color name="_E6FFFFFF">#E6FFFFFF</color>
+    <color name="_E6000000">#E6000000</color>
+    <color name="_4281FF">#4281FF</color>
+    <!--20% 不透明度-->
+    <color name="_334281FF">#334281FF</color>
+    <color name="_00A87E">#00A87E</color>
+    <color name="_FF003300">#FF003300</color>
+    <color name="FF000022">#FF000022</color>
+    <color name="F05C55">#F05C55</color>
+    <color name="FF00A87E">#FF00A87E</color>
+    <color name="_2B3147">#2B3147</color>
+    <color name="_141A33">#141A33</color>
+    <color name="_000208">#000208</color>
+
+</resources>

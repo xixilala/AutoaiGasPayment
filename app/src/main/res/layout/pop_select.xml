@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="792px"
+    android:layout_height="300px"
+    android:background="@drawable/background_style_pop_select"
+    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_smart_pop_select"
+        android:layout_width="792px"
+        android:layout_height="300px"/>
+
+</LinearLayout>

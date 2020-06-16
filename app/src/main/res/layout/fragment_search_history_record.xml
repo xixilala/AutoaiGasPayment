@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_search_bottom_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/tv_history_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/histoty_record"
+        android:textColor="@color/color_text_white"
+        android:textSize="32px" />
+
+    <TextView
+        android:id="@+id/tv_search_clear_history"
+        android:layout_width="181px"
+        android:layout_height="40px"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_blue_troke_black"
+        android:gravity="center"
+        android:text="@string/clear_hitory"
+        android:textColor="@color/FF4281FF"
+        android:textSize="24px" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_history_record"
+        android:layout_marginTop="24px"
+        android:layout_marginBottom="24px" />
+
+    <TextView
+        android:id="@+id/tv_search_no_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="189px"
+        android:drawableTop="@mipmap/hostory"
+        android:drawablePadding="33px"
+        android:text="@string/no_hitory"
+        android:textColor="#FFFFFFFF"
+        android:textSize="28px"
+        android:visibility="gone" />
+</RelativeLayout>
+

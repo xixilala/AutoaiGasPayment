@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_page"
+    app:startDestination="@id/payment_main_fragment">
+<!--主fragment-->
+    <fragment
+        android:id="@+id/payment_main_fragment"
+        android:name="com.autoai.gaspayment.view.PaymentMainFragment"
+        tools:layout="@layout/fragment_payment_main"
+        >
+        <action
+            android:id="@+id/payment_main_fragment_to_search_fragment"
+            app:destination="@id/search_fragment"
+            />
+        <action
+            android:id="@+id/payment_main_fragment_to_order_payment_fragment_main"
+            app:destination="@id/order_payment_fragment_main"
+            />
+    </fragment>
+<!--搜索fragment-->
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.autoai.gaspayment.view.SearchFragment"
+        tools:layout="@layout/fragment_search"
+        >
+        <action
+            android:id="@+id/search_fragment_to_payment_main_fragment"
+            app:destination="@id/payment_main_fragment"
+            />
+    </fragment>
+<!--下单主fragment，包含选择油号和选择金额两个fragment-->
+    <fragment
+        android:id="@+id/order_payment_fragment_main"
+        android:name="com.autoai.gaspayment.view.OrderPaymentFragment"
+        tools:layout="@layout/fragment_order_payment"
+        >
+        <action
+            android:id="@+id/order_payment_fragment_main_to_payment_main_fragment"
+            app:destination="@id/payment_main_fragment"
+            />
+        <!--跳转二维码支付页-->
+        <action android:id="@+id/order_payment_fragment_main_to_order_code_pay_fragment"
+            app:destination="@id/order_code_pay_fragment"/>
+    </fragment>
+<!--订单扫码支付fragment-->
+    <fragment
+        android:id="@+id/order_code_pay_fragment"
+        android:name="com.autoai.gaspayment.view.OrderCodePayFragment"
+        tools:layout="@layout/fragment_order_pay"
+        >
+        <action
+            android:id="@+id/order_code_pay_fragment_to_order_payment_fragment_main"
+            app:destination="@id/order_payment_fragment_main"
+            />
+    </fragment>
+
+</navigation>

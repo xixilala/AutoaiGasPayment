@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_navigation"
+    app:startDestination="@id/search_history_record">
+
+    <fragment
+        android:id="@+id/search_history_record"
+        android:name="com.autoai.gaspayment.view.SearchHistoryRecordFragment"
+        android:label="searchHistoryRecord"
+        tools:layout="@layout/fragment_search_history_record"
+        >
+        <action
+            android:id="@+id/history_record_to_destination_result"
+            app:destination="@id/search_destination_result"
+            />
+        <action
+            android:id="@+id/history_recoed_to_gas_station_result"
+            app:destination="@id/search_gas_station_result"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_destination_result"
+        android:name="com.autoai.gaspayment.view.SearchDestinationResultFragment"
+        android:label="searchDestinationResult"
+        tools:layout="@layout/fragment_search_destination_result"
+        >
+        <action
+            android:id="@+id/destination_result_to_gas_station_result"
+            app:destination="@id/search_gas_station_result"
+            />
+        <action
+            android:id="@+id/destination_result_to_history_record"
+            app:destination="@id/search_history_record"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_gas_station_result"
+        android:name="com.autoai.gaspayment.view.SearchGasStationResultFragment"
+        android:label="searchGasStationResult"
+        tools:layout="@layout/fragment_search_gas_station_result"
+        >
+        <action
+            android:id="@+id/gas_station_result_to_destination_result"
+            app:destination="@id/search_destination_result"
+            />
+        <action
+            android:id="@+id/gas_station_result_to_history_record"
+            app:destination="@id/search_history_record"
+            />
+    </fragment>
+
+</navigation>

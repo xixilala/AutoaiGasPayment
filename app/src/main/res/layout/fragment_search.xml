@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_color_gradient_up_to_down"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    >
+    <include layout="@layout/title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="97px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:id="@+id/tv_search_select_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_gas_station"
+            android:textColor="@color/color_text_white"
+            android:textSize="28px"
+            android:layout_marginLeft="40px"
+            android:drawableRight="@mipmap/pull_down"
+            android:drawablePadding="12px"
+            />
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="499px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36px"
+            android:background="@drawable/background_search"
+            android:hint="北京"
+            android:textColorHint="@color/ffc8c8c8"
+            android:textColor="@color/ffc8c8c8"
+            android:drawablePadding="10.5px"
+            android:textSize="28px"
+            android:textCursorDrawable="@null"
+            android:imeOptions="flagNoExtractUi|flagNoFullscreen|actionDone"
+            android:paddingLeft="31px"
+            android:paddingBottom="9px"
+            android:paddingTop="8px"
+            android:maxLines="1"
+            android:inputType="text"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/_1AFFFFFF"
+        android:layout_above="@+id/ll_dialog_buttons_parent"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="19.5px"
+        />
+    
+    <fragment
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/fragment_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_search"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="19.5px"
+        android:layout_marginRight="40px"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <Button
+        android:id="@+id/btn_orderselect_next_step"
+        android:layout_width="200px"
+        android:layout_height="60px"
+        android:background="@drawable/background_refresh_button"
+        android:layout_marginTop="58px"
+        android:layout_marginLeft="40px"
+        android:gravity="center"
+        android:text="@string/next_step"
+        android:textColor="@color/color_text_white"
+        android:textSize="32px"
+        />
+    <Button
+        android:id="@+id/btn_orderselect_reselection"
+        android:layout_width="200px"
+        android:layout_height="60px"
+        android:background="@drawable/background_green_button"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="58px"
+        android:gravity="center"
+        android:text="@string/reselect_station"
+        android:textColor="@color/color_text_white"
+        android:textSize="32px"
+        />
+
+</LinearLayout>
