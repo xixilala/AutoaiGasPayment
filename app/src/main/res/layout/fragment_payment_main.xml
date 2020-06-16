@@ -97,7 +97,7 @@
 
     </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.autoai.gaspayment.widget.NoPreloadViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

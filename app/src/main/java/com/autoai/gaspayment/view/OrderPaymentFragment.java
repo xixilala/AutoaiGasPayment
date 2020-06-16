@@ -56,12 +56,6 @@ public class OrderPaymentFragment extends BaseFragment {
         PaymentFragmentsAdapter adapter = new PaymentFragmentsAdapter(getChildFragmentManager(), fragments);
         vpFragmentOrderSelect.setAdapter(adapter);
 
-//        getViewModel(MainViewModel.class).getIdMutableLeveData().observe(this, new Observer<ToOrderPaymentFragmentBean>() {
-//            @Override
-//            public void onChanged(ToOrderPaymentFragmentBean bean) {
-//                Navigation.findNavController(getView()).navigate(bean.getId());
-//            }
-//        });
     }
 
     @Override

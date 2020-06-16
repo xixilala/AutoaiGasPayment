@@ -62,10 +62,7 @@ public class OrderSelectFirstStepFragment extends BaseFragment {
         rvOrderFirstSelect.setLayoutManager(gridLayoutManager);
         mGasNumSelectLists = new ArrayList<>();
         mGunNumSelectLists = new ArrayList<>();
-    }
 
-    @Override
-    protected void lazyLoadData() {
         //初始化可选择油号数据
         mGasNumSelectLists.clear();
         mGasNumSelectLists.add(new SmartSelectBean("油号", false));
@@ -85,12 +82,17 @@ public class OrderSelectFirstStepFragment extends BaseFragment {
         rvOrderFirstSelect.setAdapter(adater);
     }
 
+    @Override
+    protected void lazyLoadData() {
+
+    }
+
     @OnClick({R.id.title_back_click, R.id.btn_orderselect_next_step, R.id.btn_orderselect_reselection})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.title_back_click:
             case R.id.btn_orderselect_reselection:
-                getActivity().finish();
+                // TODO getActivity().finish();
                 break;
             case R.id.btn_orderselect_next_step:
 //                Navigation.findNavController(view).navigate(R.id.action_orderFirstSelect_to_secondSelect);
