@@ -3,6 +3,7 @@ package com.autoai.gaspayment.view;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -62,6 +63,14 @@ public class OrderSelectSecondStepFragment extends BaseFragment {
     @BindView(R.id.tv_hint_out_of_rang)
     TextView tvHintOutOfRang;
     private InputMethodManager mInputMethodManager;
+
+    public static OrderSelectSecondStepFragment newInstance(String s) {
+        OrderSelectSecondStepFragment fragment = new OrderSelectSecondStepFragment();
+        Bundle args = new Bundle();
+        args.putString("testS", s);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -137,7 +146,8 @@ public class OrderSelectSecondStepFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.title_back_click:
-                Navigation.findNavController(view).navigate(R.id.action_orderSecondSelect_to_firstSelect);
+//                Navigation.findNavController(view).navigate(R.id.action_orderSecondSelect_to_firstSelect);
+                ((OrderPaymentFragment)getParentFragment()).preStep();
                 break;
             case R.id.btn_orderselect_second_order:
                 if (true){
@@ -145,7 +155,8 @@ public class OrderSelectSecondStepFragment extends BaseFragment {
                     AlertDialog dialog = AlerDialogUtil.getCustomDialog(getActivity(), new AlerDialogUtil.DialogButtonClickListener() {
                         @Override
                         public void onPositiveButtonClick() {
-                            getViewModel(MainViewModel.class).toOrderCodePayFragment(R.id.order_payment_fragment_main_to_order_code_pay_fragment);
+//                            getViewModel(MainViewModel.class).toOrderCodePayFragment(R.id.order_payment_fragment_main_to_order_code_pay_fragment);
+                            ((OrderPaymentFragment)getParentFragment()).toOrderCodePayFragment();
                         }
 
                         @Override

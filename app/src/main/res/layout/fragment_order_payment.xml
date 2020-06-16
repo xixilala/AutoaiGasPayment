@@ -6,13 +6,10 @@
     android:background="@drawable/background_color_gradient_up_to_down"
     android:orientation="horizontal">
 
-    <fragment
-        android:id="@+id/fragment_order_select"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <com.autoai.gaspayment.widget.NoPreloadViewPager
+        android:id="@+id/vp_fragment_order_select"
         android:layout_width="699.5px"
         android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_order_select"
         />
 
     <RelativeLayout

@@ -2,32 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_order_select"
-    app:startDestination="@id/fragment_order_select_first_step"
-    >
-    <fragment
-        android:id="@+id/fragment_order_select_first_step"
-        android:name="com.autoai.gaspayment.view.OrderSelectFirstStepFragment"
-        tools:layout="@layout/fragment_order_select_first_step"
-        >
-        <action
-            android:id="@+id/action_orderFirstSelect_to_secondSelect"
-            app:destination="@id/fragment_order_select_second_step"
-            />
-    </fragment>
-    <fragment
-        android:id="@+id/fragment_order_select_second_step"
-        android:name="com.autoai.gaspayment.view.OrderSelectSecondStepFragment"
-        tools:layout="@layout/fragment_order_select_second_step"
-        >
-        <action
-            android:id="@+id/action_orderSecondSelect_to_firstSelect"
-            app:destination="@id/fragment_order_select_first_step"
-            />
-<!--        <action android:id="@+id/action_orderSecondSelect_to_orderPay"-->
-<!--            app:destination="@id/fragment_order_pay"-->
+    android:id="@+id/nav_order_select">
+<!--    app:startDestination="@id/fragment_order_select_first_step"-->
+<!--    >-->
+<!--    <fragment-->
+<!--        android:id="@+id/fragment_order_select_first_step"-->
+<!--        android:name="com.autoai.gaspayment.view.OrderSelectFirstStepFragment"-->
+<!--        tools:layout="@layout/fragment_order_select_first_step"-->
+<!--        >-->
+<!--        <action-->
+<!--            android:id="@+id/action_orderFirstSelect_to_secondSelect"-->
+<!--            app:destination="@id/fragment_order_select_second_step"-->
 <!--            />-->
-    </fragment>
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/fragment_order_select_second_step"-->
+<!--        android:name="com.autoai.gaspayment.view.OrderSelectSecondStepFragment"-->
+<!--        tools:layout="@layout/fragment_order_select_second_step"-->
+<!--        >-->
+<!--        <action-->
+<!--            android:id="@+id/action_orderSecondSelect_to_firstSelect"-->
+<!--            app:destination="@id/fragment_order_select_first_step"-->
+<!--            />-->
+<!--&lt;!&ndash;        <action android:id="@+id/action_orderSecondSelect_to_orderPay"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:destination="@id/fragment_order_pay"&ndash;&gt;-->
+<!--&lt;!&ndash;            />&ndash;&gt;-->
+<!--    </fragment>-->
 <!--    <fragment-->
 <!--        android:id="@+id/fragment_order_pay"-->
 <!--        android:name="com.autoai.payment.functionmodels.gasolinepayment.view.OrderCodePayActivity"-->

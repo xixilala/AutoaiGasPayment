@@ -1,5 +1,6 @@
 package com.autoai.gaspayment.view;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -31,6 +32,14 @@ public class OrderSelectFirstStepFragment extends BaseFragment {
     Button btnOrderselectReselection;
     private List<SmartSelectBean> mGasNumSelectLists;
     private List<SmartSelectBean> mGunNumSelectLists;
+
+    public static OrderSelectFirstStepFragment newInstance(String s) {
+        OrderSelectFirstStepFragment fragment = new OrderSelectFirstStepFragment();
+        Bundle args = new Bundle();
+        args.putString("testS", s);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -84,7 +93,8 @@ public class OrderSelectFirstStepFragment extends BaseFragment {
                 getActivity().finish();
                 break;
             case R.id.btn_orderselect_next_step:
-                Navigation.findNavController(view).navigate(R.id.action_orderFirstSelect_to_secondSelect);
+//                Navigation.findNavController(view).navigate(R.id.action_orderFirstSelect_to_secondSelect);
+                ((OrderPaymentFragment)getParentFragment()).nextStep();
                 break;
         }
     }
