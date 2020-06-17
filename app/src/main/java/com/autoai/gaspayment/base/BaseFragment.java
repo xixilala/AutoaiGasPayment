@@ -45,10 +45,6 @@ public abstract class BaseFragment extends Fragment {
     public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = onCreateView(inflater,container,savedInstanceState,0);
         mUnbinder = ButterKnife.bind(this, view);
-        isFirstLoad = true;
-        isPrepared = true;
-        initData();
-        lazyLoadData();
         return view;
     }
 
@@ -72,6 +68,10 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        isFirstLoad = true;
+        isPrepared = true;
+        initData();
+        lazyLoadData();
     }
 
     @Override

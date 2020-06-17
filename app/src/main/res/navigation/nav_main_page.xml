@@ -36,6 +36,7 @@
         android:name="com.autoai.gaspayment.view.OrderPaymentFragment"
         tools:layout="@layout/fragment_order_payment"
         >
+        <!--  跳转支付主页面      -->
         <action
             android:id="@+id/order_payment_fragment_main_to_payment_main_fragment"
             app:destination="@id/payment_main_fragment"
@@ -43,6 +44,7 @@
         <!--跳转二维码支付页-->
         <action android:id="@+id/order_payment_fragment_main_to_order_code_pay_fragment"
             app:destination="@id/order_code_pay_fragment"/>
+
     </fragment>
 <!--订单扫码支付fragment-->
     <fragment

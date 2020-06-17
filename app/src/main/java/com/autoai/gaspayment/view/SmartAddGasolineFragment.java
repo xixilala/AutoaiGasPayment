@@ -116,10 +116,7 @@ public class SmartAddGasolineFragment extends BaseFragment {
                 Navigation.findNavController(view).navigate(R.id.payment_main_fragment_to_order_payment_fragment_main);
             }
         };
-    }
 
-    @Override
-    protected void lazyLoadData() {
         //初始化加油站列表
         SmartAddGasStationListAdapter adapter = new SmartAddGasStationListAdapter(getActivity(), mGasStationListItemClickListener);
         List<String> dates = new ArrayList<>();
@@ -144,6 +141,11 @@ public class SmartAddGasolineFragment extends BaseFragment {
         mGasoBranchs.add(new SmartSelectBean("中石油", false));
         mGasoBranchs.add(new SmartSelectBean("壳牌", false));
         mGasoBranchs.add(new SmartSelectBean("其他", false));
+    }
+
+    @Override
+    protected void lazyLoadData() {
+
     }
 
     @OnClick({R.id.tv_gas_num, R.id.tv_gas_branch, R.id.tv_gas_nearest, R.id.tv_gas_cheapest})

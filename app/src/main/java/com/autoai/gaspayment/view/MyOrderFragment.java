@@ -66,10 +66,7 @@ public class MyOrderFragment extends BaseFragment {
                 showOrderDetailPop();
             }
         };
-    }
 
-    @Override
-    protected void lazyLoadData() {
         MyOrderListAdapter adpter = new MyOrderListAdapter(getActivity());
         List<String> datas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -80,6 +77,11 @@ public class MyOrderFragment extends BaseFragment {
         rvMyOrder.setAdapter(adpter);
         //无订单
         isShowNoOrderPage(true);
+    }
+
+    @Override
+    protected void lazyLoadData() {
+
     }
 
     private void showOrderDetailPop(){

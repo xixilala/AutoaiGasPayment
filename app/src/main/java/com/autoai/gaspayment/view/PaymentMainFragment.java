@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.PaymentFragmentsAdapter;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 import com.autoai.gaspayment.widget.NoPreloadViewPager;
 
@@ -23,7 +24,7 @@ import butterknife.OnClick;
 /**
  * 主fragment页面111
  */
-public class PaymentMainFragment extends BaseFragment {
+public class PaymentMainFragment extends BaseNavigationFragment {
 
     @BindView(R.id.tv_search)
     TextView tvSearch;
