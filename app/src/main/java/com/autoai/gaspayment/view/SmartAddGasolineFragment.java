@@ -20,6 +20,7 @@ import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.SmartAddGasStationListAdapter;
 import com.autoai.gaspayment.adapter.SmartPopSelectAdapter;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.bean.SmartSelectBean;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import butterknife.OnClick;
  * 智慧加油油站选择列表页
  */
 
-public class SmartAddGasolineFragment extends BaseFragment {
+public class SmartAddGasolineFragment extends BaseNavigationFragment {
 
     @BindView(R.id.tv_gas_num)
     TextView tvGasNum;

@@ -4,15 +4,15 @@ import android.view.View;
 
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 
 /**
- * Created by Android Studio.
- * User: autoai
+ * User: nxp
  * Date: 2020/6/11
  * Time: 16:17
  * Describe:搜索目的地结果页
  */
-public class SearchDestinationResultFragment extends BaseFragment {
+public class SearchDestinationResultFragment extends BaseNavigationFragment {
 
 
     @Override

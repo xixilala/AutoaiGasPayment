@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.PaymentFragmentsAdapter;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.test.MainViewModel;
 import com.autoai.gaspayment.widget.NoPreloadViewPager;
 
@@ -21,7 +22,7 @@ import butterknife.BindView;
 /**
  * 智慧加油下单页面
  */
-public class OrderPaymentFragment extends BaseFragment {
+public class OrderPaymentFragment extends BaseNavigationFragment {
 
     @BindView(R.id.vp_fragment_order_select)
     NoPreloadViewPager vpFragmentOrderSelect;

@@ -18,19 +18,19 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by Android Studio.111111
- * User: autoai
+ * Created by nxp
  * Date: 2020/6/7
  * Time: 17:18
  * Describe:扫码支付页面
  */
-public class OrderCodePayFragment extends BaseFragment {
+public class OrderCodePayFragment extends BaseNavigationFragment {
     @BindView(R.id.title_back_click)
     View titleBackClick;
     @BindView(R.id.iv_pay_code)

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.OrderOtptionAdater;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.bean.SmartSelectBean;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import butterknife.OnClick;
 /**
  * 下单第一步选择油号枪号
  */
-public class OrderSelectFirstStepFragment extends BaseFragment {
+public class OrderSelectFirstStepFragment extends BaseNavigationFragment {
     @BindView(R.id.title_back_click)
     View titleBackClick;
     @BindView(R.id.btn_orderselect_next_step)

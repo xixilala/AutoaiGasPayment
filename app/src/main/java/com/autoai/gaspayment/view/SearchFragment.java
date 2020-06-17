@@ -18,17 +18,18 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * User: nxp11111
+ * User: nxp
  * Date: 2020/6/15
  * Time: 15:47
  * Describe:搜索历史记录页面
  */
-public class SearchFragment extends BaseFragment {
+public class SearchFragment extends BaseNavigationFragment {
     @BindView(R.id.title_back_click)
     View titleBackClick;
     @BindView(R.id.tv_search_select_style)

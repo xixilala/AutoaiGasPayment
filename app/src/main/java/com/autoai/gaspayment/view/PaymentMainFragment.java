@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 主fragment页面111
+ * 主fragment页面
  */
 public class PaymentMainFragment extends BaseNavigationFragment {
 

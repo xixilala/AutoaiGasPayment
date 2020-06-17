@@ -17,6 +17,7 @@ import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.MyOrderListAdapter;
 import com.autoai.gaspayment.base.BaseActivity;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ import butterknife.BindView;
 /**
  * 我的订单列表页
  */
-public class MyOrderFragment extends BaseFragment {
+public class MyOrderFragment extends BaseNavigationFragment {
 
     @BindView(R.id.rv_my_order)
     RecyclerView rvMyOrder;

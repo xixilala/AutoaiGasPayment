@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.adapter.SearchHistoryAdapter;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 import com.autoai.gaspayment.utils.SearchHistoryUtil;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -21,13 +22,12 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by Android Studio.
- * User: autoai
+ * User: nxp
  * Date: 2020/6/11
  * Time: 15:51
  * Describe:搜索历史记录页面
  */
-public class SearchHistoryRecordFragment extends BaseFragment {
+public class SearchHistoryRecordFragment extends BaseNavigationFragment {
 
     @BindView(R.id.tv_search_clear_history)
     TextView tvSearchClearHistory;

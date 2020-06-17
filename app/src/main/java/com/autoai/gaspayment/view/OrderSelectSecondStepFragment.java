@@ -22,6 +22,7 @@ import androidx.navigation.Navigation;
 
 import com.autoai.gaspayment.R;
 import com.autoai.gaspayment.base.BaseFragment;
+import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.test.MainViewModel;
 import com.autoai.gaspayment.test.Person;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
@@ -33,7 +34,7 @@ import butterknife.OnClick;
 /**
  * 智慧加油下单第二步选择金额
  */
-public class OrderSelectSecondStepFragment extends BaseFragment {
+public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
     @BindView(R.id.title_back_click)
     View titleBackClick;
     @BindView(R.id.tv_order_second_select_price)
