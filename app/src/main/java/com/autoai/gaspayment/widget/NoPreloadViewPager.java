@@ -781,7 +781,9 @@ public class NoPreloadViewPager extends ViewGroup {
             addViewInLayout(child, index, params);
             child.measure(mChildWidthMeasureSpec, mChildHeightMeasureSpec);
         } else {
-            super.addView(child, index, params);
+            if (child.getParent() == null){
+                super.addView(child, index, params);
+            }
         }
 
         if (USE_CACHE) {

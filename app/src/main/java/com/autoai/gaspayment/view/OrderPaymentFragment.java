@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * 智慧加油下单页面
+ * 智慧加油下单页面,包含 选择油号 和 选择金额 两个fragment
  */
 public class OrderPaymentFragment extends BaseNavigationFragment {
 
@@ -51,8 +51,8 @@ public class OrderPaymentFragment extends BaseNavigationFragment {
     @Override
     protected void initData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(OrderSelectFirstStepFragment.newInstance("加载智能加油"));
-        fragments.add(OrderSelectSecondStepFragment.newInstance("我的订单"));
+        fragments.add(OrderSelectFirstStepFragment.newInstance("选择油号"));
+        fragments.add(OrderSelectSecondStepFragment.newInstance("选择金额"));
         vpFragmentOrderSelect.setOffscreenPageLimit(0);
         PaymentFragmentsAdapter adapter = new PaymentFragmentsAdapter(getChildFragmentManager(), fragments);
         vpFragmentOrderSelect.setAdapter(adapter);

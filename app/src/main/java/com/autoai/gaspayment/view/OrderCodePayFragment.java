@@ -63,15 +63,6 @@ public class OrderCodePayFragment extends BaseNavigationFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
-            @Override
-            public void handleOnBackPressed() {
-                // Handle the back button event
-                NavHostFragment.findNavController(OrderCodePayFragment.this)
-                        .popBackStack();
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override
@@ -89,9 +80,6 @@ public class OrderCodePayFragment extends BaseNavigationFragment {
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.title_back_click:
-                //        Navigation.findNavController(view).navigate(R.id.action_orderPay_to_orderSecondSelect);
-                // TODO finish();
-//                Navigation.findNavController(view).navigate(R.id.order_code_pay_fragment_to_order_payment_fragment_main);
                 Navigation.findNavController(view).popBackStack();
                 break;
             case R.id.iv_pay_code_refresh:

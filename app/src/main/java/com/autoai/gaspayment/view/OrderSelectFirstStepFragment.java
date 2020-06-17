@@ -93,7 +93,7 @@ public class OrderSelectFirstStepFragment extends BaseNavigationFragment {
         switch (view.getId()) {
             case R.id.title_back_click:
             case R.id.btn_orderselect_reselection:
-                // TODO getActivity().finish();
+                Navigation.findNavController(view).popBackStack();
                 break;
             case R.id.btn_orderselect_next_step:
 //                Navigation.findNavController(view).navigate(R.id.action_orderFirstSelect_to_secondSelect);

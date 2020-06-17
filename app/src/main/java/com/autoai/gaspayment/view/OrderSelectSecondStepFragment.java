@@ -147,7 +147,6 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.title_back_click:
-//                Navigation.findNavController(view).navigate(R.id.action_orderSecondSelect_to_firstSelect);
                 ((OrderPaymentFragment)getParentFragment()).preStep();
                 break;
             case R.id.btn_orderselect_second_order:
