@@ -47,6 +47,10 @@ public class SearchDestinationResultFragment extends BaseNavigationFragment {
             datas.add("" + i);
         }
         adapter.setDatas(datas);
+        SearchDestinationResultAdapter.ItemClickListener itemClickListener = (position) ->{
+            ((SearchFragment) getParentFragment()).toStationResult();
+        };
+        adapter.setItemClickListener(itemClickListener);
         rvSearchDestinationResult.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvSearchDestinationResult.setAdapter(adapter);
     }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,6 +62,14 @@ public class SearchFragment extends BaseNavigationFragment {
     TextView tvSearchNoHistory;
     @BindView(R.id.vp_search_result)
     NoScrollViewPager vpSearchResult;
+    //搜索框父容器
+    @BindView(R.id.ll_search_title_parent)
+    LinearLayout llSearchTitleParent;
+    @BindView(R.id.ll_search_destination_result_parent)
+    LinearLayout llSearchDestinationResultParent;
+    @BindView(R.id.tv_search_destination_result_location)
+    TextView tvSearchDestinationResultLocation;
+
 
     //搜索历史记录
     private SearchHistoryAdapter mHistoryAdapter;
@@ -87,18 +96,7 @@ public class SearchFragment extends BaseNavigationFragment {
                 if (!TextUtils.isEmpty(etSearch.getText().toString())) {
                     refreshHistoryRecord(etSearch.getText().toString(), mSelectType);
                     etSearch.setText("");
-                    if (TYPEY_GAS_STATION.equals(mSelectType)){
-                        //切换搜加油站结果页
-                        rlSearchBottomParent.setVisibility(View.GONE);
-                        vpSearchResult.setVisibility(View.VISIBLE);
-                        vpSearchResult.setCurrentItem(0);
-                    } else {
-                        //切换搜目的地结果页
-                        rlSearchBottomParent.setVisibility(View.GONE);
-                        vpSearchResult.setVisibility(View.VISIBLE);
-                        vpSearchResult.setCurrentItem(1);
-                    }
-
+                    showSearchResultPage();
                 }
                 return false;
             }
@@ -115,13 +113,14 @@ public class SearchFragment extends BaseNavigationFragment {
             }
         });
 
+        //初始化历史记录
         mHistoryAdapter = new SearchHistoryAdapter(getActivity());
         mHistoryDatas = new ArrayList<>();
         rvSearchHistory.setLayoutManager(new FlexboxLayoutManager(getActivity()));
         mHistoryAdapter.setItemclickListener(new SearchHistoryAdapter.ItemclickListener() {
             @Override
             public void onItemClick(View v, int position) {
-
+                showSearchResultPage();
             }
         });
 
@@ -130,6 +129,8 @@ public class SearchFragment extends BaseNavigationFragment {
         //显示历史记录
         vpSearchResult.setVisibility(View.GONE);
         rlSearchBottomParent.setVisibility(View.VISIBLE);
+        llSearchTitleParent.setVisibility(View.VISIBLE);
+        llSearchDestinationResultParent.setVisibility(View.GONE);
     }
 
     @OnClick({R.id.title_back_click, R.id.tv_search_select_style, R.id.tv_search_clear_history})
@@ -275,6 +276,29 @@ public class SearchFragment extends BaseNavigationFragment {
         fragments.add(SearchDestinationResultFragment.newInstance("SearchDestinationResultFragment"));
         PaymentFragmentsAdapter adapter = new PaymentFragmentsAdapter(getChildFragmentManager(), fragments);
         vpSearchResult.setAdapter(adapter);
+    }
+
+    /**
+     * 切换搜索油站页
+     */
+    public void toStationResult(){
+        llSearchTitleParent.setVisibility(View.GONE);
+        llSearchDestinationResultParent.setVisibility(View.VISIBLE);
+        vpSearchResult.setCurrentItem(0);
+    }
+
+    private void showSearchResultPage(){
+        if (TYPEY_GAS_STATION.equals(mSelectType)){
+            //切换搜加油站结果页
+            rlSearchBottomParent.setVisibility(View.GONE);
+            vpSearchResult.setVisibility(View.VISIBLE);
+            vpSearchResult.setCurrentItem(0);
+        } else {
+            //切换搜目的地结果页
+            rlSearchBottomParent.setVisibility(View.GONE);
+            vpSearchResult.setVisibility(View.VISIBLE);
+            vpSearchResult.setCurrentItem(1);
+        }
     }
 
 }

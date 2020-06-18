@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,11 @@ public class SearchDestinationResultAdapter extends RecyclerView.Adapter<SearchD
 
     private Context mContext;
     private List<String> mDatas;
+    private ItemClickListener mItemClickListener;
+
+    public void setItemClickListener(ItemClickListener itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
 
     public void setDatas(List<String> datas) {
         mDatas = datas;
@@ -43,7 +49,14 @@ public class SearchDestinationResultAdapter extends RecyclerView.Adapter<SearchD
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.rlSearchDestinationResultParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mItemClickListener != null){
+                    mItemClickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -53,6 +66,7 @@ public class SearchDestinationResultAdapter extends RecyclerView.Adapter<SearchD
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        RelativeLayout rlSearchDestinationResultParent;
         TextView tvItemSearchDestinationName;
         TextView tvItemSearchDestinationLocation;
 
@@ -60,6 +74,12 @@ public class SearchDestinationResultAdapter extends RecyclerView.Adapter<SearchD
             super(itemView);
             tvItemSearchDestinationName = itemView.findViewById(R.id.tv_item_search_destination_name);
             tvItemSearchDestinationLocation = itemView.findViewById(R.id.tv_item_search_destination_location);
+            rlSearchDestinationResultParent = itemView.findViewById(R.id.rl_search_destination_result_parent);
         }
+    }
+
+    public interface ItemClickListener{
+
+        void onItemClick(int position);
     }
 }
