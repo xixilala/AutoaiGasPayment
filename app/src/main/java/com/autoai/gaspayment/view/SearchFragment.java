@@ -17,15 +17,16 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.autoai.gaspayment.R;
+import com.autoai.gaspayment.adapter.PaymentFragmentsAdapter;
 import com.autoai.gaspayment.adapter.SearchHistoryAdapter;
-import com.autoai.gaspayment.base.BaseFragment;
 import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 import com.autoai.gaspayment.utils.SearchHistoryUtil;
+import com.autoai.gaspayment.widget.NoPreloadViewPager;
+import com.autoai.gaspayment.widget.NoScrollViewPager;
 import com.google.android.flexbox.FlexboxLayoutManager;
 
 import java.util.ArrayList;
@@ -58,10 +59,15 @@ public class SearchFragment extends BaseNavigationFragment {
     RelativeLayout rlSearchBottomParent;
     @BindView(R.id.tv_search_no_history)
     TextView tvSearchNoHistory;
+    @BindView(R.id.vp_search_result)
+    NoScrollViewPager vpSearchResult;
+
+    //搜索历史记录
     private SearchHistoryAdapter mHistoryAdapter;
     private List<String> mHistoryDatas;
     //选择搜索方式
     private String mSelectType;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_search;
@@ -69,18 +75,30 @@ public class SearchFragment extends BaseNavigationFragment {
 
     @Override
     protected void initData() {
-        Drawable drawable=getResources().getDrawable(R.mipmap.search);
-        drawable.setBounds(0,0,28,28);
+        Drawable drawable = getResources().getDrawable(R.mipmap.search);
+        drawable.setBounds(0, 0, 28, 28);
         etSearch.setHint(getString(R.string.search_gas_station));
         mSelectType = TYPEY_GAS_STATION;
-        etSearch.setCompoundDrawables(drawable,null,null,null);
+        etSearch.setCompoundDrawables(drawable, null, null, null);
         etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 //监听确认键
-                if (!TextUtils.isEmpty(etSearch.getText().toString())){
+                if (!TextUtils.isEmpty(etSearch.getText().toString())) {
                     refreshHistoryRecord(etSearch.getText().toString(), mSelectType);
                     etSearch.setText("");
+                    if (TYPEY_GAS_STATION.equals(mSelectType)){
+                        //切换搜加油站结果页
+                        rlSearchBottomParent.setVisibility(View.GONE);
+                        vpSearchResult.setVisibility(View.VISIBLE);
+                        vpSearchResult.setCurrentItem(0);
+                    } else {
+                        //切换搜目的地结果页
+                        rlSearchBottomParent.setVisibility(View.GONE);
+                        vpSearchResult.setVisibility(View.VISIBLE);
+                        vpSearchResult.setCurrentItem(1);
+                    }
+
                 }
                 return false;
             }
@@ -89,10 +107,10 @@ public class SearchFragment extends BaseNavigationFragment {
         etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                if(!hasFocus){
-                    InputMethodManager manager = ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
+                if (!hasFocus) {
+                    InputMethodManager manager = ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
                     if (manager != null)
-                        manager.hideSoftInputFromWindow(view.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                        manager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
             }
         });
@@ -108,18 +126,22 @@ public class SearchFragment extends BaseNavigationFragment {
         });
 
         searchHistoryRecord();
+        initResultPage();
+        //显示历史记录
+        vpSearchResult.setVisibility(View.GONE);
+        rlSearchBottomParent.setVisibility(View.VISIBLE);
     }
 
     @OnClick({R.id.title_back_click, R.id.tv_search_select_style, R.id.tv_search_clear_history})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.title_back_click:
-                //TODO finish();
+                Navigation.findNavController(view).popBackStack();
                 break;
             case R.id.tv_search_select_style:
-                InputMethodManager manager = ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
+                InputMethodManager manager = ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
                 if (manager != null)
-                    manager.hideSoftInputFromWindow(view.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                    manager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 showSelectPopupWindow();
                 break;
             case R.id.tv_search_clear_history:
@@ -145,15 +167,15 @@ public class SearchFragment extends BaseNavigationFragment {
         }
     }
 
-    private void showSelectPopupWindow(){
+    private void showSelectPopupWindow() {
         View contentView = LayoutInflater.from(getActivity()).inflate(R.layout.pop_select_search_style, null);
         PopupWindow searchTypePop = new PopupWindow(contentView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         Button btnSearchStylegas = contentView.findViewById(R.id.btn_search_style_gas);
         Button btnSearchStyleDestination = contentView.findViewById(R.id.btn_search_style_destination);
-        if (getString(R.string.search_gas_station).equals(tvSearchSelectStyle.getText())){
+        if (getString(R.string.search_gas_station).equals(tvSearchSelectStyle.getText())) {
             btnSearchStylegas.setSelected(true);
             btnSearchStyleDestination.setSelected(false);
-        } else if (getString(R.string.search_destination).equals(tvSearchSelectStyle.getText())){
+        } else if (getString(R.string.search_destination).equals(tvSearchSelectStyle.getText())) {
             btnSearchStyleDestination.setSelected(true);
             btnSearchStylegas.setSelected(false);
         }
@@ -161,7 +183,7 @@ public class SearchFragment extends BaseNavigationFragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.getId() == R.id.btn_search_style_gas){
+                if (v.getId() == R.id.btn_search_style_gas) {
                     btnSearchStylegas.setSelected(true);
                     btnSearchStyleDestination.setSelected(false);
                     etSearch.setHint(getString(R.string.search_gas_station));
@@ -169,7 +191,7 @@ public class SearchFragment extends BaseNavigationFragment {
                     mSelectType = TYPEY_GAS_STATION;
                     searchHistoryRecord();
                     searchTypePop.dismiss();
-                } else if (v.getId() == R.id.btn_search_style_destination){
+                } else if (v.getId() == R.id.btn_search_style_destination) {
                     btnSearchStyleDestination.setSelected(true);
                     btnSearchStylegas.setSelected(false);
                     etSearch.setHint(getString(R.string.search_destination));
@@ -187,14 +209,14 @@ public class SearchFragment extends BaseNavigationFragment {
             @Override
             public void onDismiss() {
                 Drawable drawable = getResources().getDrawable(R.mipmap.pull_down);
-                drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
-                tvSearchSelectStyle.setCompoundDrawables(null,null,drawable,null);
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                tvSearchSelectStyle.setCompoundDrawables(null, null, drawable, null);
             }
         });
         Drawable drawableUp = getResources().getDrawable(R.mipmap.pull_up);
-        drawableUp.setBounds(0,0,drawableUp.getMinimumWidth(),drawableUp.getMinimumHeight());
-        tvSearchSelectStyle.setCompoundDrawables(null,null,drawableUp,null);
-        searchTypePop.showAsDropDown(tvSearchSelectStyle,0,10);
+        drawableUp.setBounds(0, 0, drawableUp.getMinimumWidth(), drawableUp.getMinimumHeight());
+        tvSearchSelectStyle.setCompoundDrawables(null, null, drawableUp, null);
+        searchTypePop.showAsDropDown(tvSearchSelectStyle, 0, 10);
     }
 
     @Override
@@ -205,11 +227,11 @@ public class SearchFragment extends BaseNavigationFragment {
     /**
      * 获取历史记录
      */
-    private void searchHistoryRecord(){
+    private void searchHistoryRecord() {
         //搜索历史记录
         mHistoryDatas.clear();
         mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity(), mSelectType));
-        if (mHistoryDatas.size() == 0){
+        if (mHistoryDatas.size() == 0) {
             tvSearchNoHistory.setVisibility(View.VISIBLE);
             rvSearchHistory.setVisibility(View.GONE);
             tvSearchClearHistory.setVisibility(View.GONE);
@@ -224,14 +246,15 @@ public class SearchFragment extends BaseNavigationFragment {
 
     /**
      * 添加历史记录并更新列表
+     *
      * @param searchValue
      * @param type
      */
-    private void refreshHistoryRecord(String searchValue, String type){
+    private void refreshHistoryRecord(String searchValue, String type) {
         SearchHistoryUtil.saveSearchHistory(getActivity(), searchValue, type);
         mHistoryDatas.clear();
         mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity(), mSelectType));
-        if (mHistoryDatas.size() == 0){
+        if (mHistoryDatas.size() == 0) {
             tvSearchNoHistory.setVisibility(View.VISIBLE);
             tvSearchClearHistory.setVisibility(View.GONE);
             rvSearchHistory.setVisibility(View.GONE);
@@ -242,4 +265,16 @@ public class SearchFragment extends BaseNavigationFragment {
             mHistoryAdapter.notifyDataSetChanged();
         }
     }
+
+    /**
+     * 初始化搜索结果页，分为
+     */
+    private void initResultPage(){
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(SearchGasStationResultFragment.newInstance("SearchGasStationResultFragment"));
+        fragments.add(SearchDestinationResultFragment.newInstance("SearchDestinationResultFragment"));
+        PaymentFragmentsAdapter adapter = new PaymentFragmentsAdapter(getChildFragmentManager(), fragments);
+        vpSearchResult.setAdapter(adapter);
+    }
+
 }

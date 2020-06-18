@@ -61,6 +61,7 @@
     <string name="search_destination">搜目的地</string>
     <string name="clear_hitory">清空历史记录</string>
     <string name="no_hitory">暂无历史记录</string>
+    <string name="near_gas_station">附近的加油站</string>
     <string name="_gas_station_offline">当前加油站已下线，</string>
     <string name="_select_other_station">请选择其他加油站进行下单</string>
     <string name="payment_gas_by_wechat">微信扫一扫，缴纳加油费</string>

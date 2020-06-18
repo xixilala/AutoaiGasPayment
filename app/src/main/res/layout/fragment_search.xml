@@ -65,6 +65,7 @@
         android:layout_marginLeft="40px"
         android:layout_marginTop="19.5px"
         android:layout_marginRight="40px"
+        android:visibility="gone"
         >
         <TextView
             android:id="@+id/tv_history_record"
@@ -107,6 +108,14 @@
             android:textSize="28px"
             android:visibility="gone" />
     </RelativeLayout>
+
+    <com.autoai.gaspayment.widget.NoScrollViewPager
+        android:id="@+id/vp_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="19.5px"
+        android:layout_marginRight="40px"/>
 
 
 </LinearLayout>

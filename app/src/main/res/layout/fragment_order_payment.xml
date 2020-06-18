@@ -6,7 +6,7 @@
     android:background="@drawable/background_color_gradient_up_to_down"
     android:orientation="horizontal">
 
-    <com.autoai.gaspayment.widget.NoPreloadViewPager
+    <com.autoai.gaspayment.widget.NoScrollViewPager
         android:id="@+id/vp_fragment_order_select"
         android:layout_width="699.5px"
         android:layout_height="match_parent"

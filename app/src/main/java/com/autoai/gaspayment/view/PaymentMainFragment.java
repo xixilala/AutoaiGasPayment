@@ -15,6 +15,7 @@ import com.autoai.gaspayment.base.BaseFragment;
 import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 import com.autoai.gaspayment.widget.NoPreloadViewPager;
+import com.autoai.gaspayment.widget.NoScrollViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class PaymentMainFragment extends BaseNavigationFragment {
     @BindView(R.id.ll_my_order)
     LinearLayout llMyOrder;
     @BindView(R.id.viewpager)
-    NoPreloadViewPager viewpager;
+    NoScrollViewPager viewpager;
     @BindView(R.id.ll_title)
     LinearLayout llTitle;
     @BindView(R.id.ll_left_parent)

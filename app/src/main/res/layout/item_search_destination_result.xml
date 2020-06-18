@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="32px"
+        android:layout_height="32px"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="44px"
+        android:layout_marginBottom="44px"
+        android:src="@mipmap/location"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_search_destination_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="国贸-地铁站"
+        android:textColor="@color/color_text_white"
+        android:textSize="28px"
+        android:layout_marginTop="19.5px"
+        android:layout_toRightOf="@+id/iv_location"
+        android:layout_marginLeft="20px"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_search_destination_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京朝阳区建国门外大街1号"
+        android:textColor="@color/ffc8c8c8"
+        android:textSize="24px"
+        android:layout_below="@+id/tv_item_search_destination_name"
+        android:layout_marginTop="9px"
+        android:layout_toRightOf="@+id/iv_location"
+        android:layout_marginLeft="20px"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/near_gas_station"
+        android:textColor="@color/ffc8c8c8"
+        android:textSize="24px"
+        android:layout_marginTop="19.5px"
+        android:layout_toRightOf="@+id/tv_item_search_destination_name"
+        android:layout_marginLeft="158px"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/_1AFFFFFF"
+        android:layout_below="@+id/tv_item_search_destination_location"
+        android:layout_marginTop="19.5px"
+        />
+
+</RelativeLayout>

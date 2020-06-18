@@ -13,6 +13,7 @@ import com.autoai.gaspayment.base.BaseFragment;
 import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.test.MainViewModel;
 import com.autoai.gaspayment.widget.NoPreloadViewPager;
+import com.autoai.gaspayment.widget.NoScrollViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ import butterknife.BindView;
 public class OrderPaymentFragment extends BaseNavigationFragment {
 
     @BindView(R.id.vp_fragment_order_select)
-    NoPreloadViewPager vpFragmentOrderSelect;
+    NoScrollViewPager vpFragmentOrderSelect;
     @BindView(R.id.tv_gas_detail_name)
     TextView tvGasDetailName;
     @BindView(R.id.tv_gas_detail_location)
