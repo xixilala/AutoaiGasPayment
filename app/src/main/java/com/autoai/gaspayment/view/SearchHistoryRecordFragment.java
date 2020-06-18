@@ -75,7 +75,7 @@ public class SearchHistoryRecordFragment extends BaseNavigationFragment {
                 AlertDialog dialog = AlerDialogUtil.getCustomDialog(getActivity(), new AlerDialogUtil.DialogButtonClickListener() {
                     @Override
                     public void onPositiveButtonClick() {
-                        SearchHistoryUtil.clearHistory(getActivity());
+//                        SearchHistoryUtil.clearHistory(getActivity());
                         mHistoryDatas.clear();
                         mHistoryAdapter.notifyDataSetChanged();
                         tvSearchNoHistory.setVisibility(View.VISIBLE);
@@ -95,9 +95,9 @@ public class SearchHistoryRecordFragment extends BaseNavigationFragment {
     }
 
     void refreshHistoryRecord(String searchValue){
-        SearchHistoryUtil.saveSearchHistory(getActivity(), searchValue);
+//        SearchHistoryUtil.saveSearchHistory(getActivity(), searchValue, null);
         mHistoryDatas.clear();
-        mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity()));
+//        mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity()));
         if (mHistoryDatas.size() == 0){
             tvSearchNoHistory.setVisibility(View.VISIBLE);
             tvSearchClearHistory.setVisibility(View.GONE);
@@ -117,7 +117,7 @@ public class SearchHistoryRecordFragment extends BaseNavigationFragment {
     private void searchHistoryRecord(){
         //搜索历史记录
         mHistoryDatas.clear();
-        mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity()));
+//        mHistoryDatas.addAll(SearchHistoryUtil.getSearchHistory(getActivity()));
         if (mHistoryDatas.size() == 0){
             tvSearchNoHistory.setVisibility(View.VISIBLE);
             rvSearchHistory.setVisibility(View.GONE);
