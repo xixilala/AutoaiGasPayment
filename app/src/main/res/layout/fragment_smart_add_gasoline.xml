@@ -96,13 +96,29 @@
         android:background="@color/_1AFFFFFF"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_gasStation_list"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/sl_gasStation_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="7.5px"
-        android:visibility="gone"
-        />
+        android:visibility="visible">
+        <com.autoai.gaspayment.widget.RefreshHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_gasStation_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7.5px"
+            android:visibility="visible"
+            />
+        <com.autoai.gaspayment.widget.RefreshFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
     <LinearLayout
         android:id="@+id/ll_no_datas_parent"
         android:layout_width="match_parent"

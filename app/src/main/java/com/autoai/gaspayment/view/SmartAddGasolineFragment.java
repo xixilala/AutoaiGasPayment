@@ -3,6 +3,8 @@ package com.autoai.gaspayment.view;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,11 +26,17 @@ import com.autoai.gaspayment.adapter.SmartPopSelectAdapter;
 import com.autoai.gaspayment.base.BaseFragment;
 import com.autoai.gaspayment.base.BaseNavigationFragment;
 import com.autoai.gaspayment.bean.SmartSelectBean;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
+
 
 /**
  * 智慧加油油站选择列表页
@@ -54,6 +64,8 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
     LinearLayout llNoNetParent;
     @BindView(R.id.btn_refresh)
     Button btnRefresh;
+    @BindView(R.id.sl_gasStation_list)
+    SmartRefreshLayout slGasStationList;
     PopupWindow mSmartSelectPop;
     SmartPopSelectAdapter mSmartPopSelectAdapter;
     RecyclerView mSmartPopSelectRv;
@@ -76,6 +88,24 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
         fragment.setArguments(args);
         return fragment;
     }
+    //下拉刷新完成
+    private final int SMART_LAYOUT_REFRESH_FINISH = 1;
+    //上拉加载完成
+    private final int SMART_LAYOUT_LOAD_FINISH = 2;
+    private Handler mSmartLayoutHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            switch (msg.what){
+                case SMART_LAYOUT_REFRESH_FINISH:
+                    slGasStationList.finishRefresh(true);
+                    break;
+                case SMART_LAYOUT_LOAD_FINISH:
+                    slGasStationList.finishLoadMore(true);
+                    break;
+            }
+            return false;
+        }
+    });
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -117,6 +147,19 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
                 Navigation.findNavController(view).navigate(R.id.payment_main_fragment_to_order_payment_fragment_main);
             }
         };
+        //初始化上拉加载，下拉刷新
+        slGasStationList.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmartLayoutHandler.sendEmptyMessageDelayed(SMART_LAYOUT_REFRESH_FINISH, 2000);
+            }
+        });
+        slGasStationList.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmartLayoutHandler.sendEmptyMessageDelayed(SMART_LAYOUT_LOAD_FINISH, 2000);
+            }
+        });
 
         //初始化加油站列表
         SmartAddGasStationListAdapter adapter = new SmartAddGasStationListAdapter(getActivity(), mGasStationListItemClickListener);
@@ -275,25 +318,25 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
         switch (mGasStationState){
             case 1:
                 llNoDatasParent.setVisibility(View.GONE);
-                rvGasStationList.setVisibility(View.GONE);
+                slGasStationList.setVisibility(View.GONE);
                 llLoadingParent.setVisibility(View.VISIBLE);
                 llNoNetParent.setVisibility(View.GONE);
                 break;
             case 2:
                 llNoDatasParent.setVisibility(View.GONE);
-                rvGasStationList.setVisibility(View.VISIBLE);
+                slGasStationList.setVisibility(View.VISIBLE);
                 llLoadingParent.setVisibility(View.GONE);
                 llNoNetParent.setVisibility(View.GONE);
                 break;
             case 3:
                 llNoDatasParent.setVisibility(View.VISIBLE);
-                rvGasStationList.setVisibility(View.GONE);
+                slGasStationList.setVisibility(View.GONE);
                 llLoadingParent.setVisibility(View.GONE);
                 llNoNetParent.setVisibility(View.GONE);
                 break;
             case 4:
                 llNoDatasParent.setVisibility(View.GONE);
-                rvGasStationList.setVisibility(View.GONE);
+                slGasStationList.setVisibility(View.GONE);
                 llLoadingParent.setVisibility(View.GONE);
                 llNoNetParent.setVisibility(View.VISIBLE);
                 break;
@@ -301,4 +344,5 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
         }
 
     }
+
 }

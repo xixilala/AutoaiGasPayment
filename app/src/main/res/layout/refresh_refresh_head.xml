@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="74px"
+    >
+    <ProgressBar
+        android:id="@+id/refresh_header"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/loading_anim"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/_1AFFFFFF"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

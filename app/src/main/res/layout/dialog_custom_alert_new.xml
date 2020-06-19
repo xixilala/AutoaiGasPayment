@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+    <RelativeLayout
+        android:layout_width="790px"
+        android:layout_height="340px"
+        android:orientation="vertical"
+        android:background="@drawable/background_style_dialog_login"
+        >
+        <TextView
+            android:id="@+id/tv_login_hint"
+            android:layout_width="680px"
+            android:layout_height="120px"
+            android:text="@string/dialog_login_title"
+            android:textColor="@color/color_text_white"
+            android:textSize="28px"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="60px"
+            />
+
+            <Button
+                android:id="@+id/btn_logindialog_cancel"
+                android:layout_width="300px"
+                android:layout_height="100px"
+                android:background="@drawable/background_cancel_button"
+                android:text="@string/cancel"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="32px"
+                android:layout_below="@+id/tv_login_hint"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="30px"
+                />
+            <Button
+                android:id="@+id/btn_logindialog_login"
+                android:layout_width="300px"
+                android:layout_height="100px"
+                android:background="@drawable/background_refresh_button"
+                android:text="@string/login"
+                android:textColor="@color/color_text_white"
+                android:textSize="32px"
+                android:layout_below="@+id/tv_login_hint"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70px"
+                android:layout_marginTop="30px"
+                />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -15,7 +15,7 @@ public class AlerDialogUtil {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         View v = null;
         if (TextUtils.isEmpty(title)){
-            v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert, null);
+            v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_new, null);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_with_title, null);
         }
