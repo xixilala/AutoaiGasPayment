@@ -173,7 +173,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
         } else {
             editTextNotFocus.setFocusable(false);//设置输入框不可聚焦，即失去焦点和光标
             if (mInputMethodManager.isActive()) {
-                mInputMethodManager.hideSoftInputFromWindow(editTextNotFocus.getWindowToken(), 0);// 隐藏输入法
+//                mInputMethodManager.hideSoftInputFromWindow(editTextNotFocus.getWindowToken(), 0);// 隐藏输入法
             }
         }
     }
@@ -223,6 +223,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                     tvHintOutOfRang.setVisibility(View.GONE);
                 }
                 edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_refresh_button);
+                setEditTextIsFocus(false, edOrderSecondSelectOtherPrice);
                 keyboardPopupWindow.dismiss();
             }
         };
@@ -246,8 +247,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
 
                 if (hasFocus) { //隐藏系统软键盘
                     setSelectPriceState(v.getId());
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(edOrderSecondSelectOtherPrice.getWindowToken(), 0);
+                    mInputMethodManager.hideSoftInputFromWindow(edOrderSecondSelectOtherPrice.getWindowToken(), 0);
                 } else {
                     if (TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText())){
                         edOrderSecondSelectOtherPrice.setText(getString(R.string.other_price));

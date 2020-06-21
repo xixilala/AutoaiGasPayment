@@ -87,7 +87,6 @@ public class SearchGasStationResultFragment extends BaseNavigationFragment {
         Bundle args = getArguments();
         if (args != null) {
             String s = args.getString("testS");
-            Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
         }
     }
 
