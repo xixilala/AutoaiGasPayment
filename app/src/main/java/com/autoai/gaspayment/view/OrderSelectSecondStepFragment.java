@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,6 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -27,6 +29,7 @@ import com.autoai.gaspayment.test.MainViewModel;
 import com.autoai.gaspayment.test.Person;
 import com.autoai.gaspayment.utils.AlerDialogUtil;
 import com.autoai.gaspayment.utils.DecimalDigitsInputFilter;
+import com.autoai.gaspayment.widget.KeyboardPopupWindow;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -63,7 +66,13 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
     LinearLayout llOrderSecondSelectReconmmandPriceParent;
     @BindView(R.id.tv_hint_out_of_rang)
     TextView tvHintOutOfRang;
+    @BindView(R.id.rl_order_select_second_step_parent)
+    RelativeLayout rlOrderSelectSecondStepParent;
+    @BindView(R.id.view_show_keyboard_line)
+    View viewShowKeyboardLine;
     private InputMethodManager mInputMethodManager;
+
+    private KeyboardPopupWindow keyboardPopupWindow;
 
     public static OrderSelectSecondStepFragment newInstance(String s) {
         OrderSelectSecondStepFragment fragment = new OrderSelectSecondStepFragment();
@@ -103,37 +112,8 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                 }
             }
         });
-        edOrderSecondSelectOtherPrice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setEditTextIsFocus(true, edOrderSecondSelectOtherPrice);
-            }
-        });
-        edOrderSecondSelectOtherPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus){
-                    setSelectPriceState(v.getId());
-                } else {
-                    if (TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText())){
-                        edOrderSecondSelectOtherPrice.setText(getString(R.string.other_price));
-                    }
-                }
-            }
-        });
-        edOrderSecondSelectOtherPrice.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                //监听确认键
-                if (!TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText().toString()) && Double.parseDouble(edOrderSecondSelectOtherPrice.getText().toString()) > 160){
-                    tvHintOutOfRang.setVisibility(View.VISIBLE);
-                } else {
-                    tvHintOutOfRang.setVisibility(View.GONE);
-                }
-                return false;
-            }
-        });
         edOrderSecondSelectOtherPrice.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(2)});
+        initCustomKeyBoard();
     }
 
     @Override
@@ -169,7 +149,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                 }
                 break;
             case R.id.btn_orderselect_second_reselection:
-                //TODO getActivity().finish();
+                Navigation.findNavController(view).popBackStack();
                 break;
             case R.id.ll_order_second_select_reconmmand_price_parent:
                 setSelectPriceState(R.id.ll_order_second_select_reconmmand_price_parent);
@@ -189,7 +169,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
             edOrderSecondSelectOtherPrice.setFocusableInTouchMode(true);//设置触摸聚焦
             edOrderSecondSelectOtherPrice.requestFocus();//请求焦点
             edOrderSecondSelectOtherPrice.findFocus();
-            mInputMethodManager.showSoftInput(edOrderSecondSelectOtherPrice, InputMethodManager.SHOW_FORCED);// 显示输入法
+//            mInputMethodManager.showSoftInput(edOrderSecondSelectOtherPrice, InputMethodManager.SHOW_FORCED);// 显示输入法
         } else {
             editTextNotFocus.setFocusable(false);//设置输入框不可聚焦，即失去焦点和光标
             if (mInputMethodManager.isActive()) {
@@ -225,11 +205,64 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                 llOrderSecondSelectReconmmandPriceParent.setBackgroundResource(R.drawable.background_style_smart_list);
                 tvOrderSecondSelect200Price.setBackgroundResource(R.drawable.background_style_smart_list);
                 tvOrderSecondSelect100Price.setBackgroundResource(R.drawable.background_style_smart_list);
-//                    edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_refresh_button);
                 if (edOrderSecondSelectOtherPrice.getText().toString().equals(getString(R.string.other_price))){
                     edOrderSecondSelectOtherPrice.setText("");
                 }
                 break;
         }
+    }
+
+    private void initCustomKeyBoard() {
+        View.OnClickListener sureListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //监听确认键
+                if (!TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText().toString()) && Double.parseDouble(edOrderSecondSelectOtherPrice.getText().toString()) > 160){
+                    tvHintOutOfRang.setVisibility(View.VISIBLE);
+                } else {
+                    tvHintOutOfRang.setVisibility(View.GONE);
+                }
+                edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_refresh_button);
+                keyboardPopupWindow.dismiss();
+            }
+        };
+        keyboardPopupWindow = new KeyboardPopupWindow(getActivity(), viewShowKeyboardLine, edOrderSecondSelectOtherPrice, sureListener,false);
+//        numberEt.setInputType(InputType.TYPE_NULL);//该设置会导致光标不可见
+        edOrderSecondSelectOtherPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setEditTextIsFocus(true, edOrderSecondSelectOtherPrice);
+                if (keyboardPopupWindow != null) {
+                    keyboardPopupWindow.show();
+                }
+            }
+        });
+        edOrderSecondSelectOtherPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (keyboardPopupWindow != null) {
+                    keyboardPopupWindow.refreshKeyboardOutSideTouchable(!hasFocus);
+                }
+
+                if (hasFocus) { //隐藏系统软键盘
+                    setSelectPriceState(v.getId());
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(edOrderSecondSelectOtherPrice.getWindowToken(), 0);
+                } else {
+                    if (TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText())){
+                        edOrderSecondSelectOtherPrice.setText(getString(R.string.other_price));
+                    }
+                }
+
+            }
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (keyboardPopupWindow != null) {
+            keyboardPopupWindow.releaseResources();
+        }
+        super.onDestroyView();
     }
 }

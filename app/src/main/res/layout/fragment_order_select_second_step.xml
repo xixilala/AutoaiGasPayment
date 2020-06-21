@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_order_select_second_step_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -104,6 +105,15 @@
         android:layout_below="@+id/ed_order_second_select_other_price"
         android:layout_marginTop="16px"
         android:visibility="gone"
+        />
+    <View
+        android:id="@+id/view_show_keyboard_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/ll_order_second_select_reconmmand_price_parent"
+        android:layout_marginTop="44px"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
         />
     <TextView
         android:id="@+id/tv_order_second_select_discont_price"
