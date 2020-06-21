@@ -1,5 +1,6 @@
 package com.autoai.gaspayment.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,13 +30,14 @@ public class ToastUtil {
         toast.show();
     }
 
-    public static void showTextToas(Context context,String message){
+    @SuppressLint("WrongConstant")
+    public static void showTextToas(Context context, String message){
         View toastview= LayoutInflater.from(context).inflate(R.layout.toast_custom,null);
         TextView text = (TextView) toastview.findViewById(R.id.tv_toast_msg);
         text.setText(message);
         Toast toast = new Toast(context);
         toast.setGravity(Gravity.BOTTOM,0,0);
-        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setDuration(3000);
         toast.setView(toastview);
         toast.show();
     }

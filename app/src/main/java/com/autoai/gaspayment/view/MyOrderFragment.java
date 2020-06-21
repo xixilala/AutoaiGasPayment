@@ -98,10 +98,9 @@ public class MyOrderFragment extends BaseNavigationFragment {
         TextView detailDialogGunNum = v.findViewById(R.id.detail_dialog_gun_num);
         TextView detailDialogGasNum = v.findViewById(R.id.detail_dialog_gas_num);
         TextView detailDialogPayStyle = v.findViewById(R.id.detail_dialog_pay_style);
-        View parent = ((BaseActivity)getActivity()).getParentView();
         PopupWindow orderDetailPop = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         orderDetailPop.setOutsideTouchable(true);
-        orderDetailPop.showAtLocation(parent, Gravity.CENTER, 0, 0);
+        orderDetailPop.showAtLocation(rvMyOrder, Gravity.CENTER, 0, 0);
         WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
         lp.alpha=0.3f;
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
