@@ -1,8 +1,11 @@
 package com.autoai.gaspayment.view;
 
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -27,8 +30,7 @@ import butterknife.OnClick;
  */
 public class PaymentMainFragment extends BaseNavigationFragment {
 
-    @BindView(R.id.tv_search)
-    TextView tvSearch;
+
     @BindView(R.id.ll_smart_add_sagoline)
     LinearLayout llSmartAddSagoline;
     @BindView(R.id.ll_my_order)
@@ -36,9 +38,9 @@ public class PaymentMainFragment extends BaseNavigationFragment {
     @BindView(R.id.viewpager)
     NoScrollViewPager viewpager;
     @BindView(R.id.ll_title)
-    LinearLayout llTitle;
+    TextView llTitle;
     @BindView(R.id.ll_left_parent)
-    LinearLayout llLeftParent;
+    RelativeLayout llLeftParent;
     @BindView(R.id.tv_my_order)
     TextView tvMyOrder;
     @BindView(R.id.tv_smart_add_gas)
@@ -73,7 +75,14 @@ public class PaymentMainFragment extends BaseNavigationFragment {
                 }
             }, getString(R.string.login), getString(R.string.cancel), null);
             dialog.show();
-            dialog.getWindow().setBackgroundDrawable(null);
+            Window window = dialog.getWindow();
+            if (window != null){
+                WindowManager.LayoutParams lp = window.getAttributes();
+                window.setBackgroundDrawable(null);
+                lp.width = 790;
+                lp.height = 340;
+                dialog.getWindow().setAttributes(lp);
+            }
             llTitle.setVisibility(View.GONE);
             llLeftParent.setVisibility(View.GONE);
         } else {
@@ -89,12 +98,9 @@ public class PaymentMainFragment extends BaseNavigationFragment {
     }
 
 
-    @OnClick({R.id.tv_search, R.id.ll_smart_add_sagoline, R.id.ll_my_order})
+    @OnClick({R.id.ll_smart_add_sagoline, R.id.ll_my_order})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.tv_search:
-                Navigation.findNavController(view).navigate(R.id.payment_main_fragment_to_search_fragment);
-                break;
             case R.id.ll_smart_add_sagoline:
                 setNavigationBarState(false);
                 break;

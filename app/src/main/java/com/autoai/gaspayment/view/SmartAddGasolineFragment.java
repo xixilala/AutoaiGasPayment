@@ -66,6 +66,8 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
     Button btnRefresh;
     @BindView(R.id.sl_gasStation_list)
     SmartRefreshLayout slGasStationList;
+    @BindView(R.id.tv_search)
+    TextView tvSearch;
     PopupWindow mSmartSelectPop;
     SmartPopSelectAdapter mSmartPopSelectAdapter;
     RecyclerView mSmartPopSelectRv;
@@ -191,7 +193,7 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
 
     }
 
-    @OnClick({R.id.tv_gas_num, R.id.tv_gas_branch, R.id.tv_gas_nearest, R.id.tv_gas_cheapest})
+    @OnClick({R.id.tv_gas_num, R.id.tv_gas_branch, R.id.tv_gas_nearest, R.id.tv_gas_cheapest, R.id.tv_search})
     public void onViewClicked(View view) {
         setSelectedTextColor(view.getId());
         switch (view.getId()) {
@@ -210,6 +212,9 @@ public class SmartAddGasolineFragment extends BaseNavigationFragment {
             case R.id.tv_gas_cheapest:
                 mGasStationState = 2;
                 setNoGasoStationList();
+                break;
+            case R.id.tv_search:
+                Navigation.findNavController(view).navigate(R.id.payment_main_fragment_to_search_fragment);
                 break;
         }
     }

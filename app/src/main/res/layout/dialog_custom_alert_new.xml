@@ -25,7 +25,7 @@
             <Button
                 android:id="@+id/btn_logindialog_cancel"
                 android:layout_width="300px"
-                android:layout_height="100px"
+                android:layout_height="90px"
                 android:background="@drawable/background_cancel_button"
                 android:text="@string/cancel"
                 android:textColor="@color/ffc8c8c8"
@@ -37,7 +37,7 @@
             <Button
                 android:id="@+id/btn_logindialog_login"
                 android:layout_width="300px"
-                android:layout_height="100px"
+                android:layout_height="90px"
                 android:background="@drawable/background_refresh_button"
                 android:text="@string/login"
                 android:textColor="@color/color_text_white"

@@ -37,9 +37,9 @@
             android:text="@string/all_brand"
             android:textColor="#FFC8C8C8"
             android:textSize="28px"
-            android:layout_marginLeft="54px"
+            android:layout_marginLeft="29.5px"
             android:drawableRight="@mipmap/pull_down"
-            android:drawablePadding="12.5px"
+            android:drawablePadding="12px"
             />
 
         <View
@@ -77,15 +77,28 @@
             android:text="@string/cheapest"
             android:textColor="@color/ffc8c8c8"
             android:textSize="28px"
-            android:layout_marginLeft="60px"
+            android:layout_marginLeft="29.5px"
             />
 
         <View
             android:layout_width="1px"
             android:layout_height="22px"
             android:background="@color/_1AFFFFFF"
-            android:layout_marginLeft="23.5px"
+            android:layout_marginLeft="29.5px"
             android:layout_marginTop="20px"
+            />
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/search"
+            android:textColor="@color/ffc8c8c8"
+            android:textSize="22px"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/search"
+            android:drawablePadding="10.5px"
+            android:layout_marginLeft="31px"
             />
     </LinearLayout>
 

@@ -24,11 +24,11 @@ public class RefreshFooter extends InternalAbstract {
 
     public static String REFRESH_FOOTER_PULLING = "上拉加载更多";//"上拉加载更多";
     public static String REFRESH_FOOTER_RELEASE = "释放立即加载";//"释放立即加载";
-    public static String REFRESH_FOOTER_LOADING = "正在加载...";//"正在加载...";
+    public static String REFRESH_FOOTER_LOADING = "数据加载中...";//"正在加载...";
     public static String REFRESH_FOOTER_REFRESHING = "正在刷新...";//"正在刷新...";
     public static String REFRESH_FOOTER_FINISH = "加载完成";//"加载完成";
     public static String REFRESH_FOOTER_FAILED = "加载失败";//"加载失败";
-    public static String REFRESH_FOOTER_NOTHING = "没有更多数据了";//"没有更多数据了";
+    public static String REFRESH_FOOTER_NOTHING = "没有更多内容了";//"没有更多数据了";
 
     private TextView mTitleText;
     private ProgressBar mProgressBar;

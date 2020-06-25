@@ -4,59 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:fitsSystemWindows="true"
     >
-
-    <LinearLayout
-        android:id="@+id/ll_title"
-        android:layout_width="match_parent"
-        android:layout_height="99px"
-        android:orientation="horizontal"
+    <RelativeLayout
+        android:id="@+id/ll_left_parent"
+        android:layout_width="330px"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_color_gradient"
         >
         <TextView
+            android:id="@+id/ll_title"
             android:layout_width="wrap_content"
-            android:layout_height="47px"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="58.9px"
+            android:layout_height="99px"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="42px"
             android:text="@string/gasoline_payment"
             android:textColor="#FFC8C8C8"
             android:textSize="32px"
             />
-        <TextView
-            android:id="@+id/tv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="47px"
-            android:layout_gravity="center_vertical"
-            android:text="@string/search"
-            android:textColor="#FFC8C8C8"
-            android:textSize="32px"
-            android:gravity="center"
-            android:drawableLeft="@mipmap/search"
-            android:drawablePadding="10.5px"
-            android:layout_marginLeft="58.9px"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_left_parent"
-        android:layout_width="330px"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ll_title"
-        android:orientation="vertical"
-        android:background="@drawable/background_color_gradient"
-        >
         <LinearLayout
             android:id="@+id/ll_smart_add_sagoline"
             android:layout_width="match_parent"
             android:layout_height="99px"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/ll_title"
             >
             <ImageView
                 android:id="@+id/iv_smart_add_sag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/left_smart_add_gas_selected"
+                android:layout_marginLeft="42px"
                 />
             <TextView
                 android:id="@+id/tv_smart_add_gas"
@@ -75,13 +54,15 @@
             android:layout_width="match_parent"
             android:layout_height="99px"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/ll_smart_add_sagoline"
             >
             <ImageView
                 android:id="@+id/iv_my_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/left_order"
+                android:layout_marginLeft="42px"
                 />
             <TextView
                 android:id="@+id/tv_my_order"
@@ -95,15 +76,29 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_service"
+            android:textColor="@color/ffc8c8c8"
+            android:textSize="16px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24px"
+            android:drawableLeft="@mipmap/gas_logo_big"
+            android:drawablePadding="6px"
+            android:layout_marginLeft="8px"
+            android:layout_marginRight="7px"
+            />
+
+    </RelativeLayout>
 
     <com.autoai.gaspayment.widget.NoScrollViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_title"
+        android:paddingTop="99px"
         android:layout_toRightOf="@+id/ll_left_parent"
-        android:background="@drawable/background_color_gradient_up_to_down"
+        android:background="@drawable/background_color_gradient_dark"
         />
 
 </RelativeLayout>
