@@ -17,11 +17,12 @@ public class AlerDialogUtil {
         if (TextUtils.isEmpty(title)){
             v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_new, null);
         } else {
-            v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_with_title, null);
+            v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_with_title_new, null);
+            TextView tvTitle = v.findViewById(R.id.tv_dialog_title);
+            tvTitle.setText(title);
         }
         Button positive = v.findViewById(R.id.btn_logindialog_login);
         Button negative = v.findViewById(R.id.btn_logindialog_cancel);
-        TextView tvTitle = v.findViewById(R.id.tv_dialog_title);
         positive.setText(posText);
         negative.setText(negText);
         dialogBuilder.setView(v);

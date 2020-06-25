@@ -8,7 +8,7 @@
     >
     <LinearLayout
         android:layout_width="720px"
-        android:layout_height="458px"
+        android:layout_height="512px"
         android:orientation="vertical"
         android:background="@drawable/background_style_dialog_login"
         android:gravity="center_horizontal"
@@ -20,7 +20,7 @@
             android:text="支付时间：2020.04.05  18:10:29"
             android:textColor="@color/ffc8c8c8"
             android:textSize="28px"
-            android:layout_marginTop="40px"
+            android:layout_marginTop="60px"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -60,16 +60,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/customer_service"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/gas_logo_small"
             android:textColor="@color/ffc8c8c8"
             android:textSize="20px"
             android:layout_marginTop="31.5px"
             />
         <Button
             android:id="@+id/btn_pay_succ_okay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_style_dialog_bottom_corner"
-            android:layout_marginTop="32px"
+            android:layout_width="450px"
+            android:layout_height="90px"
+            android:background="@drawable/bg_reorder_button"
+            android:layout_marginTop="30px"
             android:text="@string/okay"
             android:textColor="@color/color_text_white"
             android:textSize="32px"

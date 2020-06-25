@@ -3,7 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/background_color_gradient_left_to_right"
     >
 
     <TextView
@@ -160,7 +159,7 @@
                 android:textSize="32px"
                 android:gravity="center"
                 android:background="@drawable/selector_keyboard_click"
-                android:text="."
+                android:text="·"
                 android:layout_marginRight="20px"
                 />
             <Button

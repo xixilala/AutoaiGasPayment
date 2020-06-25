@@ -115,115 +115,121 @@
         android:layout_marginLeft="40px"
         android:layout_marginRight="40px"
         />
-    <TextView
-        android:id="@+id/tv_order_second_select_discont_price"
+    <RelativeLayout
+        android:id="@+id/rl_pop_keyboard_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/discount_price"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
         android:layout_below="@+id/ed_order_second_select_other_price"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="60px"
-        />
-
-    <TextView
-        android:id="@+id/tv_order_second_select_discont_price_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="20元"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
-        android:layout_below="@+id/ed_order_second_select_other_price"
-        android:layout_toRightOf="@+id/tv_order_second_select_discont_price"
-        android:layout_marginTop="60px"
-        />
-
-    <TextView
-        android:id="@+id/tv_order_second_select_real_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/real_price"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
-        android:layout_below="@+id/tv_order_second_select_discont_price"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="24px"
-        />
-
-    <TextView
-        android:id="@+id/tv_order_second_select_real_price_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="280元"
-        android:textColor="@color/FF4281FF"
-        android:textSize="36px"
-        android:layout_below="@+id/tv_order_second_select_discont_price"
-        android:layout_toRightOf="@+id/tv_order_second_select_discont_price"
-        android:layout_marginTop="24px"
-        />
-
-    <TextView
-        android:id="@+id/tv_order_second_select_pay_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pay_style"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
-        android:layout_below="@+id/tv_order_second_select_real_price"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="28px"
-        />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/tv_order_second_select_real_price"
-        android:layout_toRightOf="@+id/tv_order_second_select_pay_style"
-        android:layout_marginTop="24px"
         >
-        <RadioButton
-            android:id="@+id/rbtn_wechat"
+        <TextView
+            android:id="@+id/tv_order_second_select_discont_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@drawable/background_pay_style_select"
-            />
-        <RadioButton
-            android:id="@+id/rbtn_ali"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@drawable/background_pay_style_select"
-            android:layout_marginLeft="40px"
-            />
-    </RadioGroup>
+            android:text="@string/discount_price"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
 
-    <Button
-        android:id="@+id/btn_orderselect_second_order"
-        android:layout_width="200px"
-        android:layout_height="60px"
-        android:background="@drawable/background_refresh_button"
-        android:layout_below="@+id/tv_order_second_select_pay_style"
-        android:layout_marginTop="93px"
-        android:layout_marginLeft="40px"
-        android:layout_marginBottom="65px"
-        android:gravity="center"
-        android:text="@string/order"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
-        />
-    <Button
-        android:id="@+id/btn_orderselect_second_reselection"
-        android:layout_width="200px"
-        android:layout_height="60px"
-        android:background="@drawable/background_green_button"
-        android:layout_toRightOf="@+id/btn_orderselect_second_order"
-        android:layout_alignTop="@+id/btn_orderselect_second_order"
-        android:layout_marginLeft="30px"
-        android:gravity="center"
-        android:text="@string/reselect_station"
-        android:textColor="@color/color_text_white"
-        android:textSize="32px"
-        />
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="60px"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_second_select_discont_price_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20元"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            android:layout_toRightOf="@+id/tv_order_second_select_discont_price"
+            android:layout_marginTop="60px"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_second_select_real_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/real_price"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            android:layout_below="@+id/tv_order_second_select_discont_price"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="24px"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_second_select_real_price_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="280元"
+            android:textColor="@color/FF4281FF"
+            android:textSize="36px"
+            android:layout_below="@+id/tv_order_second_select_discont_price"
+            android:layout_toRightOf="@+id/tv_order_second_select_discont_price"
+            android:layout_marginTop="24px"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_second_select_pay_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pay_style"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            android:layout_below="@+id/tv_order_second_select_real_price"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="28px"
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tv_order_second_select_real_price"
+            android:layout_toRightOf="@+id/tv_order_second_select_pay_style"
+            android:layout_marginTop="24px"
+            >
+            <RadioButton
+                android:id="@+id/rbtn_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@drawable/background_pay_style_select"
+                />
+            <RadioButton
+                android:id="@+id/rbtn_ali"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@drawable/background_pay_style_select"
+                android:layout_marginLeft="40px"
+                />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_orderselect_second_order"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:background="@drawable/background_refresh_button"
+            android:layout_below="@+id/tv_order_second_select_pay_style"
+            android:layout_marginTop="93px"
+            android:layout_marginLeft="40px"
+            android:layout_marginBottom="65px"
+            android:gravity="center"
+            android:text="@string/order"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            />
+        <Button
+            android:id="@+id/btn_orderselect_second_reselection"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:background="@drawable/background_green_button"
+            android:layout_toRightOf="@+id/btn_orderselect_second_order"
+            android:layout_alignTop="@+id/btn_orderselect_second_order"
+            android:layout_marginLeft="30px"
+            android:gravity="center"
+            android:text="@string/reselect_station"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>

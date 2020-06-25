@@ -4,11 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -70,6 +74,8 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
     RelativeLayout rlOrderSelectSecondStepParent;
     @BindView(R.id.view_show_keyboard_line)
     View viewShowKeyboardLine;
+    @BindView(R.id.rl_pop_keyboard_parent)
+    RelativeLayout rlPopKeyboardParent;
     private InputMethodManager mInputMethodManager;
 
     private KeyboardPopupWindow keyboardPopupWindow;
@@ -112,7 +118,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                 }
             }
         });
-        edOrderSecondSelectOtherPrice.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(2)});
+//        edOrderSecondSelectOtherPrice.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(2)});
         initCustomKeyBoard();
     }
 
@@ -127,6 +133,14 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.title_back_click:
+                //当键盘还在显示时，按下返回键先处理键盘
+                if (keyboardPopupWindow.isShowing()){
+                    keyboardPopupWindow.dismiss();
+                    edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_refresh_button);
+                    if (TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText())){
+                        edOrderSecondSelectOtherPrice.setText(getString(R.string.other_price));
+                    }
+                }
                 ((OrderPaymentFragment)getParentFragment()).preStep();
                 break;
             case R.id.btn_orderselect_second_order:
@@ -146,6 +160,14 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                     }, getString(R.string.continue_to_order), getString(R.string.cancel), getString(R.string.warm_hint));
                     dialog.show();
                     dialog.getWindow().setBackgroundDrawable(null);
+                    Window window = dialog.getWindow();
+                    if (window != null){
+                        WindowManager.LayoutParams lp = window.getAttributes();
+                        window.setBackgroundDrawable(null);
+                        lp.width = 790;
+                        lp.height = 432;
+                        dialog.getWindow().setAttributes(lp);
+                    }
                 }
                 break;
             case R.id.btn_orderselect_second_reselection:
@@ -225,6 +247,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                 edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_refresh_button);
                 setEditTextIsFocus(false, edOrderSecondSelectOtherPrice);
                 keyboardPopupWindow.dismiss();
+                rlPopKeyboardParent.setVisibility(View.VISIBLE);
             }
         };
         keyboardPopupWindow = new KeyboardPopupWindow(getActivity(), viewShowKeyboardLine, edOrderSecondSelectOtherPrice, sureListener,false);
@@ -234,7 +257,7 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
             public void onClick(View v) {
                 setEditTextIsFocus(true, edOrderSecondSelectOtherPrice);
                 if (keyboardPopupWindow != null) {
-                    keyboardPopupWindow.show();
+                    keyboardPopupWindow.show(rlPopKeyboardParent, viewShowKeyboardLine);
                 }
             }
         });
@@ -242,18 +265,44 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (keyboardPopupWindow != null) {
-                    keyboardPopupWindow.refreshKeyboardOutSideTouchable(!hasFocus);
+                    keyboardPopupWindow.refreshKeyboardOutSideTouchable(!hasFocus, rlPopKeyboardParent, viewShowKeyboardLine);
                 }
 
                 if (hasFocus) { //隐藏系统软键盘
                     setSelectPriceState(v.getId());
                     mInputMethodManager.hideSoftInputFromWindow(edOrderSecondSelectOtherPrice.getWindowToken(), 0);
+                    edOrderSecondSelectOtherPrice.setBackgroundResource(R.drawable.background_style_smart_list);
                 } else {
                     if (TextUtils.isEmpty(edOrderSecondSelectOtherPrice.getText())){
                         edOrderSecondSelectOtherPrice.setText(getString(R.string.other_price));
                     }
                 }
 
+            }
+        });
+        edOrderSecondSelectOtherPrice.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String editStr = s.toString().trim();
+
+                int posDot = editStr.indexOf(".");
+                //不允许输入3位小数,超过三位就删掉
+                if (posDot < 0) {
+                    return;
+                }
+                if (editStr.length() - posDot - 1 > 2) {
+                    s.delete(posDot + 3, posDot + 4);
+                }
             }
         });
     }

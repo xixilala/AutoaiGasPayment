@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -48,9 +49,9 @@ public class OrderCodePayFragment extends BaseNavigationFragment {
     @BindView(R.id.iv_pay_code_refresh)
     ImageView ivPayCodeRefresh;
     @BindView(R.id.tv_order_pay_reorder)
-    TextView tvOrderPayReorder;
+    Button tvOrderPayReorder;
     @BindView(R.id.ll_order_payfragment_left_reorder_parent)
-    RelativeLayout llOrderPayfragmentLeftReorderParent;
+    LinearLayout llOrderPayfragmentLeftReorderParent;
     @BindView(R.id.ll_order_payfragment_left_code_parent)
     LinearLayout llOrderPayfragmentLeftCodeParent;
 

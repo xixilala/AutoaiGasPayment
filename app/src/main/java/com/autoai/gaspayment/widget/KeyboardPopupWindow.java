@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
 import com.autoai.gaspayment.R;
 
@@ -82,14 +83,15 @@ public class KeyboardPopupWindow extends PopupWindow {
      *
      * @param isTouchable
      */
-    public void refreshKeyboardOutSideTouchable(boolean isTouchable) {
+    public void refreshKeyboardOutSideTouchable(boolean isTouchable, RelativeLayout rlPopKeyboardParent, View anchor) {
         setOutsideTouchable(isTouchable);
         if (!isTouchable) {
 //            Log.d(TAG, "执行show");
-            show();
+            show(rlPopKeyboardParent, anchor);
         } else {
 //            Log.d(TAG, "执行dismiss");
             dismiss();
+            rlPopKeyboardParent.setVisibility(View.VISIBLE);
         }
     }
 
@@ -158,11 +160,12 @@ public class KeyboardPopupWindow extends PopupWindow {
     }
 
 
-    public void show() {
-        if (!isShowing() && anchorView != null) {
+    public void show(RelativeLayout rlPopKeyboardParent, View anchor) {
+        if (!isShowing() && anchor != null) {
             doRandomSortOp();
 //            this.showAtLocation(anchorView, Gravity.BOTTOM, 0, 0);
-            this.showAsDropDown(anchorView);
+            rlPopKeyboardParent.setVisibility(View.GONE);
+            this.showAsDropDown(anchor);
         }
     }
 
@@ -201,7 +204,7 @@ public class KeyboardPopupWindow extends PopupWindow {
         if (context == null || anchorView == null) {
             return;
         }
-        show();
+//        show();
     }
 
     public boolean isRandomSort() {

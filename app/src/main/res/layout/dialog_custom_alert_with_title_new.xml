@@ -6,27 +6,38 @@
     >
     <RelativeLayout
         android:layout_width="790px"
-        android:layout_height="340px"
+        android:layout_height="432px"
         android:orientation="vertical"
         android:background="@drawable/background_style_dialog_login"
         >
         <TextView
+            android:id="@+id/tv_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="90px"
+            android:gravity="center"
+            android:textColor="@color/color_text_white"
+            android:textSize="36px"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="55px"
+            />
+        <TextView
             android:id="@+id/tv_login_hint"
             android:layout_width="680px"
             android:layout_height="120px"
-            android:text="@string/dialog_login_title"
+            android:text="@string/distance_warning"
             android:textColor="@color/color_text_white"
             android:textSize="28px"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_marginTop="60px"
+            android:layout_below="@+id/tv_dialog_title"
+            android:layout_marginTop="31px"
             />
 
             <Button
                 android:id="@+id/btn_logindialog_cancel"
                 android:layout_width="300px"
                 android:layout_height="90px"
-                android:background="@drawable/background_cancel_button"
+                android:background="@drawable/bg_reorder_button"
                 android:text="@string/cancel"
                 android:textColor="@color/ffc8c8c8"
                 android:textSize="32px"
@@ -38,7 +49,7 @@
                 android:id="@+id/btn_logindialog_login"
                 android:layout_width="300px"
                 android:layout_height="90px"
-                android:background="@drawable/bg_reorder_button"
+                android:background="@drawable/background_cancel_button"
                 android:text="@string/login"
                 android:textColor="@color/color_text_white"
                 android:textSize="32px"

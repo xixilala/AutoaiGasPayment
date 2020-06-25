@@ -1,195 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_color_gradient_up_to_down"
-    >
-    <include layout="@layout/title"
+    android:background="@drawable/background_color_gradient_up_to_down">
+
+    <include
         android:id="@+id/title_order_payfragment_pay"
-        />
+        layout="@layout/title" />
 
     <LinearLayout
         android:id="@+id/ll_order_payfragment_left_code_parent"
         android:layout_width="520px"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/title_order_payfragment_pay"
         android:layout_above="@+id/tv_order_payfragment_service"
+        android:layout_below="@+id/title_order_payfragment_pay"
         android:gravity="center_horizontal"
-        android:visibility="visible"
-        >
+        android:orientation="vertical"
+        android:visibility="visible">
+
         <RelativeLayout
             android:layout_width="210px"
             android:layout_height="210px"
-            android:layout_marginTop="167px"
-            >
+            android:layout_marginTop="167px">
+
             <ImageView
                 android:id="@+id/iv_pay_code"
                 android:layout_width="210px"
                 android:layout_height="210px"
-                android:src="@mipmap/ic_launcher"
-                />
+                android:src="@mipmap/ic_launcher" />
+
             <View
                 android:id="@+id/view_pay_code_mask"
                 android:layout_width="210px"
                 android:layout_height="210px"
                 android:background="@color/_4DFFFFFF"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
+
             <ImageView
                 android:id="@+id/iv_pay_code_refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/refresh_code"
                 android:layout_centerInParent="true"
-                android:visibility="gone"
-                />
+                android:src="@mipmap/refresh_code"
+                android:visibility="gone" />
         </RelativeLayout>
+
         <TextView
             android:id="@+id/tv_order_payfragment_code_hint"
             android:layout_width="400px"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28px"
             android:gravity="center"
             android:text="@string/payment_gas_by_wechat"
             android:textColor="#FFFFFFFF"
-            android:textSize="32px"
-            android:layout_marginTop="28px"
-            />
+            android:textSize="32px" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/ll_order_payfragment_left_reorder_parent"
         android:layout_width="520px"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/title_order_payfragment_pay"
         android:layout_above="@+id/tv_order_payfragment_service"
-        android:visibility="gone"
-        >
+        android:layout_below="@+id/title_order_payfragment_pay"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
         <ImageView
             android:id="@+id/iv_warning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/warning"
-            android:layout_marginTop="159px"
-            android:layout_centerHorizontal="true"
-            />
+            android:src="@mipmap/warning" />
+
         <TextView
             android:id="@+id/tv_order_closed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28px"
             android:text="@string/order_has_closerd"
             android:textColor="@color/color_text_white"
-            android:textSize="32px"
-            android:layout_below="@+id/iv_warning"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="28px"
-            />
-        <RelativeLayout
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/tv_continu_add_gas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_order_closed"
-            android:layout_centerHorizontal="true"
-            >
-            <TextView
-                android:id="@+id/tv_continu_add_gas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/if_continue_add_gas"
-                android:textColor="@color/color_text_white"
-                android:textSize="32px"
-                />
-            <TextView
-                android:id="@+id/tv_order_pay_reorder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/please_reorder"
-                android:textColor="@color/_4281FF"
-                android:textSize="32px"
-                android:layout_toRightOf="@+id/tv_continu_add_gas"
-                />
-        </RelativeLayout>
+            android:text="@string/if_continue_add_gas"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/tv_order_pay_reorder"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:text="@string/reorder"
+            android:textColor="@color/color_text_white"
+            android:textSize="32px"
+            android:paddingTop="14px"
+            android:paddingBottom="14px"
+            android:layout_marginTop="40px"
+            android:background="@drawable/bg_reorder_button"
+            />
+
+
+    </LinearLayout>
 
     <View
         android:id="@+id/view_order_payfragment_line"
         android:layout_width="1px"
         android:layout_height="502px"
-        android:layout_marginLeft="520px"
         android:layout_centerVertical="true"
-        android:background="@color/_1AFFFFFF"
-        />
+        android:layout_marginLeft="520px"
+        android:background="@color/_1AFFFFFF" />
 
     <RelativeLayout
         android:id="@+id/ll_order_payfragment_right_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/title_order_payfragment_pay"
         android:layout_above="@+id/tv_order_payfragment_service"
+        android:layout_below="@+id/title_order_payfragment_pay"
         android:layout_toRightOf="@+id/view_order_payfragment_line"
-        android:gravity="center"
-        >
+        android:gravity="center">
+
         <TextView
             android:id="@+id/tv_order_payfragment_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="中国石油中油首汽四号加油站"
             android:textColor="@color/color_text_white"
-            android:textSize="36px"
-            />
+            android:textSize="36px" />
+
         <TextView
             android:id="@+id/tv_order_payfragment_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pay_price"
-            android:textColor="#FFFFFFFF"
-            android:textSize="32px"
             android:layout_below="@+id/tv_order_payfragment_name"
             android:layout_marginTop="40px"
-            />
+            android:text="@string/pay_price"
+            android:textColor="#FFFFFFFF"
+            android:textSize="32px" />
+
         <TextView
             android:id="@+id/tv_order_payfragment_price_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="280 元"
-            android:textColor="@color/F05C55"
-            android:textSize="32px"
             android:layout_below="@+id/tv_order_payfragment_name"
             android:layout_marginTop="40px"
             android:layout_toRightOf="@+id/tv_order_payfragment_price"
-            />
+            android:text="280 元"
+            android:textColor="@color/F05C55"
+            android:textSize="32px" />
+
         <TextView
             android:id="@+id/tv_order_payfragment_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="剩余时间：30 分 00 秒"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="32px"
             android:layout_below="@+id/tv_order_payfragment_price_num"
             android:layout_marginTop="12px"
-            />
+            android:text="剩余时间：30 分 00 秒"
+            android:textColor="@color/ffc8c8c8"
+            android:textSize="32px" />
+
         <TextView
             android:layout_width="461px"
             android:layout_height="wrap_content"
-            android:text="@string/order_explain"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="24px"
             android:layout_below="@+id/tv_order_payfragment_time"
             android:layout_marginTop="24px"
-            />
+            android:text="@string/order_explain"
+            android:textColor="@color/ffc8c8c8"
+            android:textSize="24px" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_order_payfragment_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23px"
+        android:drawableLeft="@mipmap/gas_logo_small"
+        android:drawablePadding="8px"
+        android:gravity="center"
         android:text="@string/customer_service"
         android:textColor="@color/ffc8c8c8"
-        android:textSize="24px"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="23px"
-        />
+        android:textSize="24px" />
 </RelativeLayout>

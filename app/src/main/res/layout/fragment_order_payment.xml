@@ -1,112 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_color_gradient_up_to_down"
+    android:background="@drawable/background_color_gradient_dark_left_to_right"
     android:orientation="horizontal">
 
     <com.autoai.gaspayment.widget.NoScrollViewPager
         android:id="@+id/vp_fragment_order_select"
-        android:layout_width="699.5px"
-        android:layout_height="match_parent"
-        />
-
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="19.5px"
-        android:paddingRight="36px"
+        android:layout_above="@+id/tv_gas_detail_service"
+        android:layout_marginBottom="31px"
+        android:layout_toLeftOf="@+id/view_gas_detail_line" />
+
+    <ScrollView
+        android:id="@+id/rl_gas_detail_parent"
+        android:layout_width="410px"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_gas_detail_service"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="99px"
-        >
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="31px"
+        android:paddingLeft="19.5px">
 
-        <TextView
-            android:id="@+id/tv_gas_detail_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="北京石油中油首汽四号加油站"
-            android:textColor="@color/color_text_white"
-            android:textSize="36px"
-            android:layout_marginTop="18.7px"
-            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_gas_detail_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_gas_detail_name"
-            android:layout_marginTop="8px"
-            android:text="80km | 北京市朝阳区建外灵通观1号，卓明大厦附近"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="28px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19px"
+                android:text="北京石油中油首汽四号加油站"
+                android:textColor="@color/color_text_white"
+                android:textSize="36px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_gas_detail_location"
-            android:layout_marginTop="15px"
-            android:text="¥4.50/升"
-            android:textColor="@color/FFF25D52"
-            android:textSize="36px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_gas_detail_name"
+                android:layout_marginTop="8px"
+                android:text="80km | 北京市朝阳区建外灵通观1号，卓明大厦附近"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="28px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_station_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_gas_detail_price"
-            android:layout_marginTop="27px"
-            android:text="油站价 ¥4.90/升"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="28px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_gas_detail_location"
+                android:layout_marginTop="16px"
+                android:text="¥4.50/升"
+                android:textColor="@color/FFF25D52"
+                android:textSize="36px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_international_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_gas_detail_price"
-            android:layout_marginLeft="15px"
-            android:layout_marginTop="27px"
-            android:layout_toRightOf="@+id/tv_gas_detail_station_price"
-            android:text="油站价 ¥5.58/升"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="28px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_station_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_gas_detail_price"
+                android:layout_marginTop="30px"
+                android:text="油站价 ¥4.90/升"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="28px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_branch"
-            android:layout_width="98px"
-            android:layout_height="54px"
-            android:layout_below="@+id/tv_gas_detail_station_price"
-            android:layout_marginTop="44px"
-            android:background="@drawable/background_refresh_button"
-            android:gravity="center"
-            android:text="中石化"
-            android:textColor="@color/color_text_white"
-            android:textSize="24px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_international_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_gas_detail_price"
+                android:layout_marginLeft="15px"
+                android:layout_marginTop="30px"
+                android:layout_toRightOf="@+id/tv_gas_detail_station_price"
+                android:text="油站价 ¥5.58/升"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="28px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_ticket_mode"
-            android:layout_width="118px"
-            android:layout_height="54px"
-            android:layout_below="@+id/tv_gas_detail_station_price"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="44px"
-            android:layout_toRightOf="@+id/tv_gas_detail_branch"
-            android:background="@drawable/background_refresh_button"
-            android:gravity="center"
-            android:text="站内开票"
-            android:textColor="@color/color_text_white"
-            android:textSize="24px" />
+            <TextView
+                android:id="@+id/tv_gas_detail_branch"
+                android:layout_width="98px"
+                android:layout_height="54px"
+                android:layout_below="@+id/tv_gas_detail_international_price"
+                android:layout_marginTop="20px"
+                android:background="@drawable/background_refresh_button"
+                android:gravity="center"
+                android:text="中石化"
+                android:textColor="@color/color_text_white"
+                android:textSize="24px" />
 
-        <TextView
-            android:id="@+id/tv_gas_detail_ticket_explain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_gas_detail_branch"
-            android:layout_marginTop="36px"
-            android:text="开票说明：站内开票为在加油站开票，团油开票请关注团油官方微信公众号，点击一键加油-我的-开发票"
-            android:textColor="@color/ffc8c8c8"
-            android:textSize="28px" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_gas_detail_ticket_mode"
+                android:layout_width="118px"
+                android:layout_height="54px"
+                android:layout_below="@+id/tv_gas_detail_international_price"
+                android:layout_marginLeft="18px"
+                android:layout_marginTop="20px"
+                android:layout_toRightOf="@+id/tv_gas_detail_branch"
+                android:background="@drawable/background_refresh_button"
+                android:gravity="center"
+                android:text="站内开票"
+                android:textColor="@color/color_text_white"
+                android:textSize="24px" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_gas_detail_ticket_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_gas_detail_branch"
+                android:layout_marginTop="20px"
+                android:text="开票说明：站内开票为在加油站开票，团油开票请关注团油官方微信公众号，点击一键加油-我的-开发票"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="28px" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/view_gas_detail_line"
+        android:layout_width="1px"
+        android:layout_height="550px"
+        android:layout_marginTop="99px"
+        android:layout_toLeftOf="@+id/rl_gas_detail_parent"
+        android:background="@color/_1AFFFFFF" />
+
+    <TextView
+        android:id="@+id/tv_gas_detail_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="251px"
+        android:layout_marginBottom="20px"
+        android:drawableLeft="@mipmap/gas_logo_small"
+        android:drawablePadding="8px"
+        android:text="@string/customer_service"
+        android:textColor="@color/ffc8c8c8"
+        android:textSize="20px" />
+</RelativeLayout>

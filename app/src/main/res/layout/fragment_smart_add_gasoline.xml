@@ -114,7 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="7.5px"
-        android:visibility="visible">
+        android:visibility="gone">
         <com.autoai.gaspayment.widget.RefreshHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -168,7 +168,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loading"
+            android:text="@string/loading_data"
             android:textColor="@color/ffc8c8c8"
             android:textSize="32px"
             android:layout_marginTop="28px"
@@ -180,7 +180,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         android:gravity="center"
         >
         <TextView
