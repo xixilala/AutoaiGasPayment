@@ -7,6 +7,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -163,7 +165,14 @@ public class SearchFragment extends BaseNavigationFragment {
                     }
                 }, getString(R.string.sure), getString(R.string.cancel), null);
                 dialog.show();
-                dialog.getWindow().setBackgroundDrawable(null);
+                Window window = dialog.getWindow();
+                if (window != null){
+                    WindowManager.LayoutParams lp = window.getAttributes();
+                    window.setBackgroundDrawable(null);
+                    lp.width = 790;
+                    lp.height = 340;
+                    dialog.getWindow().setAttributes(lp);
+                }
                 break;
         }
     }

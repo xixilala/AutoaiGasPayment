@@ -48,8 +48,8 @@
         android:textColor="@color/ffc8c8c8"
         android:textSize="24px"
         android:layout_marginTop="19.5px"
-        android:layout_toRightOf="@+id/tv_item_search_destination_name"
-        android:layout_marginLeft="158px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="70px"
         />
     <View
         android:layout_width="match_parent"

@@ -2,6 +2,8 @@ package com.autoai.gaspayment.view;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -97,15 +99,27 @@ public class OrderCodePayFragment extends BaseNavigationFragment {
                 break;
             case R.id.tv_order_payfragment_name:
                 //支付成功弹窗
-                AlertDialog dialog = AlerDialogUtil.getPaySuccDialog(getActivity(), new View.OnClickListener() {
+                AlertDialog dialog = AlerDialogUtil.getPaySuccDialog(getActivity(), new AlerDialogUtil.DialogButtonClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        //TODO finish();
+                    public void onPositiveButtonClick() {
+
+                    }
+
+                    @Override
+                    public void onNegativeButtonClick() {
 
                     }
                 });
                 dialog.show();
-                dialog.getWindow().setBackgroundDrawable(null);
+                Window window = dialog.getWindow();
+                if (window != null){
+                    window.setBackgroundDrawable(null);
+                    WindowManager.LayoutParams lp = window.getAttributes();
+                    window.setBackgroundDrawable(null);
+                    lp.width = 790;
+                    lp.height = 512;
+                    dialog.getWindow().setAttributes(lp);
+                }
                 //订单过期
                 showReOrderPage();
                 //二维码过期

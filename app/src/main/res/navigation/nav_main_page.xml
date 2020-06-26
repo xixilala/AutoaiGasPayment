@@ -29,6 +29,9 @@
             android:id="@+id/search_fragment_to_payment_main_fragment"
             app:destination="@id/payment_main_fragment"
             />
+        <!--搜索fragment跳转支付fragment-->
+        <action android:id="@+id/search_fragment_to_order_payment_fragment_main"
+            app:destination="@id/order_payment_fragment_main"/>
     </fragment>
 <!--下单主fragment，包含选择油号和选择金额两个fragment-->
     <fragment

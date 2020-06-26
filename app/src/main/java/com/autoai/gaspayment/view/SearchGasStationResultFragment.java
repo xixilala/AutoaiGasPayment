@@ -117,7 +117,7 @@ public class SearchGasStationResultFragment extends BaseNavigationFragment {
         mGasStationListItemClickListener = new SmartAddGasStationListAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int Position) {
-                Navigation.findNavController(view).navigate(R.id.payment_main_fragment_to_order_payment_fragment_main);
+                Navigation.findNavController(view).navigate(R.id.search_fragment_to_order_payment_fragment_main);
             }
         };
 

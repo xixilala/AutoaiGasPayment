@@ -45,7 +45,7 @@ public class AlerDialogUtil {
         return dialog;
     }
 
-    public static AlertDialog getPaySuccDialog(Context context, View.OnClickListener onClickListener){
+    public static AlertDialog getPaySuccDialog(Context context, DialogButtonClickListener listener){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         View v = LayoutInflater.from(context).inflate(R.layout.dialog_custom_alert_one_button, null);
         Button positive = v.findViewById(R.id.btn_pay_succ_okay);
@@ -55,7 +55,13 @@ public class AlerDialogUtil {
         dialogBuilder.setView(v);
         dialogBuilder.setCancelable(false);
         AlertDialog dialog = dialogBuilder.create();
-        positive.setOnClickListener(onClickListener);
+        positive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                listener.onPositiveButtonClick();
+            }
+        });
         return dialog;
     }
 

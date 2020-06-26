@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="right"
     >
     <RelativeLayout
-        android:layout_width="840px"
-        android:layout_height="608px"
+        android:layout_width="720px"
+        android:layout_height="match_parent"
         android:background="@drawable/background_style_dialog_login"
         >
         <ImageView
@@ -16,129 +16,151 @@
             android:layout_width="38px"
             android:layout_height="38px"
             android:src="@mipmap/close"
-            android:layout_marginTop="20px"
-            android:layout_marginLeft="19px"
+            android:layout_marginTop="33px"
+            android:layout_marginLeft="24.5px"
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="99px"
+            android:text="@string/order_detail"
+            android:textColor="@color/ffc8c8c8"
+            android:textSize="32px"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            />
+        <View
+            android:id="@+id/view_title_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/_1AFFFFFF"
+            android:layout_below="@+id/tv_title"
             />
         <TextView
             android:id="@+id/tv_real_price"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/_real_price"
             android:textColor="@color/color_text_white"
             android:textSize="28px"
-            android:layout_marginTop="72px"
-            android:layout_marginLeft="17px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="19px"
+            android:layout_marginLeft="49px"
             />
         <TextView
             android:id="@+id/tv_detail_dialog_real_price"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="¥300"
             android:textColor="@color/color_text_white"
-            android:textSize="32px"
+            android:textSize="36px"
             android:layout_below="@+id/tv_real_price"
-            android:layout_marginTop="6px"
-            android:layout_marginLeft="17px"
+            android:layout_marginTop="9.3px"
+            android:layout_marginLeft="49px"
             />
         <View
             android:id="@+id/view_price_line"
             android:layout_width="1px"
-            android:layout_height="71px"
+            android:layout_height="85px"
             android:background="@color/_1AFFFFFF"
-            android:layout_below="@+id/ll_my_order_time_remaining_parent"
-            android:layout_marginTop="81px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="25px"
             android:layout_toRightOf="@+id/tv_real_price"
+            android:layout_marginLeft="29.5px"
             />
 
         <TextView
             android:id="@+id/tv_add_gas_price"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/_add_gas_price"
             android:textColor="@color/color_text_white"
             android:textSize="28px"
             android:layout_toRightOf="@+id/view_price_line"
-            android:layout_marginTop="72px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="19px"
+            android:layout_marginLeft="29.5px"
             />
         <TextView
             android:id="@+id/tv_detail_dialog_add_gas_price"
-            android:layout_width="202px"
-            android:gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¥300"
             android:textColor="@color/color_text_white"
-            android:textSize="32px"
+            android:textSize="36px"
             android:layout_below="@+id/tv_add_gas_price"
             android:layout_toRightOf="@+id/view_price_line"
-            android:layout_marginTop="6px"
+            android:layout_marginTop="9.3px"
+            android:layout_marginLeft="29.5px"
             />
         <View
             android:id="@+id/view_add_gas_price_line"
             android:layout_width="1px"
-            android:layout_height="71px"
+            android:layout_height="85px"
             android:background="@color/_1AFFFFFF"
-            android:layout_below="@+id/ll_my_order_time_remaining_parent"
-            android:layout_marginTop="81px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="25px"
             android:layout_toRightOf="@+id/tv_add_gas_price"
+            android:layout_marginLeft="29.5px"
             />
 
         <TextView
             android:id="@+id/tv_cheaper_price"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/_cheaper_price"
             android:textColor="@color/color_text_white"
             android:textSize="28px"
             android:layout_toRightOf="@+id/view_add_gas_price_line"
-            android:layout_marginTop="72px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="19px"
+            android:layout_marginLeft="29.5px"
             />
         <TextView
             android:id="@+id/tv_detail_dialog_cheaper_price"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="¥300"
             android:textColor="@color/color_text_white"
-            android:textSize="32px"
+            android:textSize="36px"
             android:layout_below="@+id/tv_cheaper_price"
             android:layout_toRightOf="@+id/view_add_gas_price_line"
-            android:layout_marginTop="6px"
+            android:layout_marginTop="9.3px"
+            android:layout_marginLeft="29.5px"
             />
         <View
             android:id="@+id/view_add_cheaper_line"
             android:layout_width="1px"
-            android:layout_height="71px"
+            android:layout_height="85px"
             android:background="@color/_1AFFFFFF"
-            android:layout_below="@+id/ll_my_order_time_remaining_parent"
-            android:layout_marginTop="81px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="25px"
             android:layout_toRightOf="@+id/tv_cheaper_price"
+            android:layout_marginLeft="29.5px"
             />
         <TextView
             android:id="@+id/tv_gas_num"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/_gas_num"
             android:textColor="@color/color_text_white"
             android:textSize="28px"
             android:layout_toRightOf="@+id/view_add_cheaper_line"
-            android:layout_marginTop="72px"
+            android:layout_below="@+id/view_title_line"
+            android:layout_marginTop="19px"
+            android:layout_marginLeft="29.5px"
             />
         <TextView
             android:id="@+id/tv_detail_dialog_gas_num"
-            android:layout_width="202px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="19.2L"
             android:textColor="@color/color_text_white"
-            android:textSize="32px"
+            android:textSize="36px"
             android:layout_below="@+id/tv_cheaper_price"
             android:layout_toRightOf="@+id/view_add_cheaper_line"
-            android:layout_marginTop="6px"
+            android:layout_marginTop="9.3px"
+            android:layout_marginLeft="29.5px"
             />
         <View
             android:id="@+id/view_num_line"
@@ -146,9 +168,7 @@
             android:layout_height="1px"
             android:background="@color/_1AFFFFFF"
             android:layout_below="@+id/tv_detail_dialog_gas_num"
-            android:layout_marginTop="16px"
-            android:layout_marginLeft="30px"
-            android:layout_marginRight="30px"
+            android:layout_marginTop="18.7px"
             />
         <TextView
             android:id="@+id/detail_dialog_order_num"
@@ -157,10 +177,9 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
             android:layout_below="@+id/view_num_line"
-            android:layout_marginTop="19px"
+            android:layout_marginTop="20px"
             />
         <TextView
             android:id="@+id/detail_dialog_order_state"
@@ -169,9 +188,9 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
             android:layout_below="@+id/detail_dialog_order_num"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             />
         <TextView
             android:id="@+id/detail_dialog_order_name"
@@ -180,8 +199,8 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             android:layout_below="@+id/detail_dialog_order_state"
             />
         <TextView
@@ -191,8 +210,8 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             android:layout_below="@+id/detail_dialog_order_name"
             />
         <TextView
@@ -202,8 +221,8 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             android:layout_below="@+id/detail_dialog_order_location"
             />
         <TextView
@@ -213,8 +232,8 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             android:layout_below="@+id/detail_dialog_gun_num"
             />
         <TextView
@@ -224,8 +243,8 @@
             android:text="订单号: 2B6C2B87-94C4-4308-B2B8-08D3BF72FXXX"
             android:textColor="@color/ffc8c8c8"
             android:textSize="24px"
-            android:layout_marginLeft="61.5px"
-            android:layout_marginRight="58.5px"
+            android:layout_marginLeft="49px"
+            android:layout_marginTop="12px"
             android:layout_below="@+id/detail_dialog_gas_num"
             />
     </RelativeLayout>

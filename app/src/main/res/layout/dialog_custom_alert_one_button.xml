@@ -50,12 +50,25 @@
             android:textSize="24px"
             android:layout_marginTop="12px"
             />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/_1AFFFFFF"
-            android:layout_marginTop="21.5px"
-            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/_1AFFFFFF"
+                android:layout_marginTop="21.5px"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B2B8-08D3BF72FXXX"
+                android:textColor="@color/ffc8c8c8"
+                android:textSize="24px"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

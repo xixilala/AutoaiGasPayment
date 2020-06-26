@@ -159,7 +159,6 @@ public class OrderSelectSecondStepFragment extends BaseNavigationFragment {
                         }
                     }, getString(R.string.continue_to_order), getString(R.string.cancel), getString(R.string.warm_hint));
                     dialog.show();
-                    dialog.getWindow().setBackgroundDrawable(null);
                     Window window = dialog.getWindow();
                     if (window != null){
                         WindowManager.LayoutParams lp = window.getAttributes();

@@ -100,7 +100,8 @@ public class MyOrderFragment extends BaseNavigationFragment {
         TextView detailDialogPayStyle = v.findViewById(R.id.detail_dialog_pay_style);
         PopupWindow orderDetailPop = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         orderDetailPop.setOutsideTouchable(true);
-        orderDetailPop.showAtLocation(rvMyOrder, Gravity.CENTER, 0, 0);
+        orderDetailPop.setClippingEnabled(false);//覆盖状态栏
+        orderDetailPop.showAtLocation(rvMyOrder, Gravity.RIGHT, 0, 0);
         WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
         lp.alpha=0.3f;
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
